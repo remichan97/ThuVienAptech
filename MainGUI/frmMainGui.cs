@@ -42,7 +42,10 @@ namespace ThuVien.MainGUI
 
         private void frmMainGui_Load(object sender, EventArgs e)
         {
-
+            if (gridThongTinSach.Rows.Count > 0)
+            {
+                gridThongTinSach.CurrentRow.Selected = false;
+            }
         }
 
         private void btnDienLaiSach_Click(object sender, EventArgs e)
