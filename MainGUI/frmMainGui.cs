@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ThuVien
+namespace ThuVien.MainGUI
 {
-    public partial class Form1 : Form
+    public partial class frmMainGui : Form
     {
-        public Form1()
+        public frmMainGui()
         {
             InitializeComponent();
         }
