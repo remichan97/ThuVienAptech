@@ -13,7 +13,7 @@ namespace ThuVien
 {
     public partial class frmSignIn : Form
     {
-        DbConnection db = new DbConnection();
+        ThuVien.Controller.NguoiDung user = new Controller.NguoiDung();
         public frmSignIn()
         {
             InitializeComponent();
@@ -28,19 +28,20 @@ namespace ThuVien
             }
             try
             {
-                SqlCommand cmd = new SqlCommand("HeThong_DangNhapHeThong", db.GetConnection());
-                cmd.Parameters.AddWithValue("@TenDangNhap", txtUserName.Text);
-                cmd.Parameters.AddWithValue("@MatKhau", txtPassword.Text);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
+                user.SignIn(txtUserName.Text, txtPassword.Text);
                 this.Hide();
                 ThuVien.MainGUI.frmMainGui prm = new MainGUI.frmMainGui();
-                prm.Show();
+                prm.ShowDialog();
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void frmSignIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

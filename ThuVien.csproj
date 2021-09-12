@@ -50,8 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\NguoiDung.cs" />
+    <Compile Include="Controller\Sach.cs" />
     <Compile Include="Data.cs" />
-    <Compile Include="DbConnection.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="frmSignIn.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ThuVien
 {
-    public class DbConnection
+    public class Database
     {
         Data dt = new Data();
 

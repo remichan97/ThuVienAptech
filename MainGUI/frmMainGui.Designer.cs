@@ -44,25 +44,25 @@ namespace ThuVien.MainGUI
             this.tooltextTrangThai = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.gridThongTinSach = new System.Windows.Forms.DataGridView();
+            this.btnTimSach = new System.Windows.Forms.Button();
+            this.txtTimSach = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTenSach = new System.Windows.Forms.TextBox();
-            this.txtTacGia = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtLoaiSach = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numSoLuong = new System.Windows.Forms.NumericUpDown();
             this.btnThemSach = new System.Windows.Forms.Button();
             this.btnSuaSach = new System.Windows.Forms.Button();
             this.btnXoaSach = new System.Windows.Forms.Button();
             this.btnDienLaiSach = new System.Windows.Forms.Button();
-            this.txtTimSach = new System.Windows.Forms.TextBox();
+            this.numSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLoaiSach = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTacGia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTenSach = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnTimSach = new System.Windows.Forms.Button();
-            this.gridThongTinSach = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,9 +72,9 @@ namespace ThuVien.MainGUI
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridThongTinSach)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridThongTinSach)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -204,24 +204,44 @@ namespace ThuVien.MainGUI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Danh mục sách";
             // 
-            // tabPage2
+            // gridThongTinSach
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(941, 561);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Mượn sách";
+            this.gridThongTinSach.AllowUserToAddRows = false;
+            this.gridThongTinSach.AllowUserToDeleteRows = false;
+            this.gridThongTinSach.AllowUserToResizeColumns = false;
+            this.gridThongTinSach.AllowUserToResizeRows = false;
+            this.gridThongTinSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridThongTinSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column5,
+            this.Column4});
+            this.gridThongTinSach.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridThongTinSach.Location = new System.Drawing.Point(3, 206);
+            this.gridThongTinSach.MultiSelect = false;
+            this.gridThongTinSach.Name = "gridThongTinSach";
+            this.gridThongTinSach.ReadOnly = true;
+            this.gridThongTinSach.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridThongTinSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridThongTinSach.Size = new System.Drawing.Size(935, 352);
+            this.gridThongTinSach.TabIndex = 11;
             // 
-            // tabPage3
+            // btnTimSach
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(941, 561);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Trả sách";
+            this.btnTimSach.Location = new System.Drawing.Point(858, 167);
+            this.btnTimSach.Name = "btnTimSach";
+            this.btnTimSach.Size = new System.Drawing.Size(75, 23);
+            this.btnTimSach.TabIndex = 10;
+            this.btnTimSach.Text = "Tìm kiếm";
+            this.btnTimSach.UseVisualStyleBackColor = true;
+            // 
+            // txtTimSach
+            // 
+            this.txtTimSach.Location = new System.Drawing.Point(87, 167);
+            this.txtTimSach.Name = "txtTimSach";
+            this.txtTimSach.Size = new System.Drawing.Size(765, 22);
+            this.txtTimSach.TabIndex = 9;
             // 
             // groupBox1
             // 
@@ -244,70 +264,6 @@ namespace ThuVien.MainGUI
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sách";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên sách";
-            // 
-            // txtTenSach
-            // 
-            this.txtTenSach.Location = new System.Drawing.Point(84, 24);
-            this.txtTenSach.Name = "txtTenSach";
-            this.txtTenSach.Size = new System.Drawing.Size(406, 22);
-            this.txtTenSach.TabIndex = 1;
-            // 
-            // txtTacGia
-            // 
-            this.txtTacGia.Location = new System.Drawing.Point(84, 70);
-            this.txtTacGia.Name = "txtTacGia";
-            this.txtTacGia.Size = new System.Drawing.Size(406, 22);
-            this.txtTacGia.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tác giả";
-            // 
-            // txtLoaiSach
-            // 
-            this.txtLoaiSach.Location = new System.Drawing.Point(574, 24);
-            this.txtLoaiSach.Name = "txtLoaiSach";
-            this.txtLoaiSach.Size = new System.Drawing.Size(355, 22);
-            this.txtLoaiSach.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(505, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Loại sách";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(505, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Số lượng";
-            // 
-            // numSoLuong
-            // 
-            this.numSoLuong.Location = new System.Drawing.Point(574, 71);
-            this.numSoLuong.Name = "numSoLuong";
-            this.numSoLuong.Size = new System.Drawing.Size(120, 22);
-            this.numSoLuong.TabIndex = 4;
             // 
             // btnThemSach
             // 
@@ -346,12 +302,69 @@ namespace ThuVien.MainGUI
             this.btnDienLaiSach.UseVisualStyleBackColor = true;
             this.btnDienLaiSach.Click += new System.EventHandler(this.btnDienLaiSach_Click);
             // 
-            // txtTimSach
+            // numSoLuong
             // 
-            this.txtTimSach.Location = new System.Drawing.Point(87, 167);
-            this.txtTimSach.Name = "txtTimSach";
-            this.txtTimSach.Size = new System.Drawing.Size(765, 22);
-            this.txtTimSach.TabIndex = 9;
+            this.numSoLuong.Location = new System.Drawing.Point(574, 71);
+            this.numSoLuong.Name = "numSoLuong";
+            this.numSoLuong.Size = new System.Drawing.Size(120, 22);
+            this.numSoLuong.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(505, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Số lượng";
+            // 
+            // txtLoaiSach
+            // 
+            this.txtLoaiSach.Location = new System.Drawing.Point(574, 24);
+            this.txtLoaiSach.Name = "txtLoaiSach";
+            this.txtLoaiSach.Size = new System.Drawing.Size(355, 22);
+            this.txtLoaiSach.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(505, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Loại sách";
+            // 
+            // txtTacGia
+            // 
+            this.txtTacGia.Location = new System.Drawing.Point(84, 70);
+            this.txtTacGia.Name = "txtTacGia";
+            this.txtTacGia.Size = new System.Drawing.Size(406, 22);
+            this.txtTacGia.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Tác giả";
+            // 
+            // txtTenSach
+            // 
+            this.txtTenSach.Location = new System.Drawing.Point(84, 24);
+            this.txtTenSach.Name = "txtTenSach";
+            this.txtTenSach.Size = new System.Drawing.Size(406, 22);
+            this.txtTenSach.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên sách";
             // 
             // label5
             // 
@@ -362,40 +375,28 @@ namespace ThuVien.MainGUI
             this.label5.TabIndex = 8;
             this.label5.Text = "Tìm tên sách";
             // 
-            // btnTimSach
+            // tabPage2
             // 
-            this.btnTimSach.Location = new System.Drawing.Point(858, 167);
-            this.btnTimSach.Name = "btnTimSach";
-            this.btnTimSach.Size = new System.Drawing.Size(75, 23);
-            this.btnTimSach.TabIndex = 10;
-            this.btnTimSach.Text = "Tìm kiếm";
-            this.btnTimSach.UseVisualStyleBackColor = true;
+            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(941, 561);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Mượn sách";
             // 
-            // gridThongTinSach
+            // tabPage3
             // 
-            this.gridThongTinSach.AllowUserToAddRows = false;
-            this.gridThongTinSach.AllowUserToDeleteRows = false;
-            this.gridThongTinSach.AllowUserToResizeColumns = false;
-            this.gridThongTinSach.AllowUserToResizeRows = false;
-            this.gridThongTinSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridThongTinSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column5,
-            this.Column4});
-            this.gridThongTinSach.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridThongTinSach.Location = new System.Drawing.Point(3, 206);
-            this.gridThongTinSach.MultiSelect = false;
-            this.gridThongTinSach.Name = "gridThongTinSach";
-            this.gridThongTinSach.ReadOnly = true;
-            this.gridThongTinSach.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gridThongTinSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridThongTinSach.Size = new System.Drawing.Size(935, 352);
-            this.gridThongTinSach.TabIndex = 11;
+            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(941, 561);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Trả sách";
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "ID";
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -404,6 +405,7 @@ namespace ThuVien.MainGUI
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "TenSach";
             this.Column2.HeaderText = "Tên sách";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -411,6 +413,7 @@ namespace ThuVien.MainGUI
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "TacGia";
             this.Column3.HeaderText = "Tác giả";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -418,6 +421,7 @@ namespace ThuVien.MainGUI
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "LoaiSach";
             this.Column5.HeaderText = "Loại sách";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -425,6 +429,7 @@ namespace ThuVien.MainGUI
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "SoLuong";
             this.Column4.HeaderText = "Số lượng";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -453,10 +458,10 @@ namespace ThuVien.MainGUI
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridThongTinSach)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridThongTinSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

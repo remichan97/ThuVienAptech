@@ -12,10 +12,14 @@ namespace ThuVien.MainGUI
 {
     public partial class frmMainGui : Form
     {
+        ThuVien.Controller.NguoiDung user = new Controller.NguoiDung();
+        ThuVien.Controller.Sach book = new Controller.Sach();
         public frmMainGui()
         {
             InitializeComponent();
             tooltextTrangThai.Text = "Sẵn sàng";
+            DataTable bookList = book.getBookList(null);
+            gridThongTinSach.DataSource = bookList;
         }
 
         private void frmMainGui_FormClosing(object sender, FormClosingEventArgs e)
@@ -26,12 +30,13 @@ namespace ThuVien.MainGUI
                 a = MessageBox.Show("Bạn muốn thoát phần mềm?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (a == DialogResult.Yes)
                 {
+                    user.SignOut();
                     Application.Exit();
                 }
-            }
-            else
-            {
-                e.Cancel = true;
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
