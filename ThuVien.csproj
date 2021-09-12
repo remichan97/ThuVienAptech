@@ -52,8 +52,8 @@
   <ItemGroup>
     <Compile Include="Controller\NguoiDung.cs" />
     <Compile Include="Controller\Sach.cs" />
-    <Compile Include="Data.cs" />
-    <Compile Include="Database.cs" />
+    <Compile Include="Controller\Data.cs" />
+    <Compile Include="Controller\Database.cs" />
     <Compile Include="frmSignIn.cs">
       <SubType>Form</SubType>
     </Compile>

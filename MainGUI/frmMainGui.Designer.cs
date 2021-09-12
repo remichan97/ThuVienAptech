@@ -45,6 +45,11 @@ namespace ThuVien.MainGUI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gridThongTinSach = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnTimSach = new System.Windows.Forms.Button();
             this.txtTimSach = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,11 +68,6 @@ namespace ThuVien.MainGUI
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -162,7 +162,7 @@ namespace ThuVien.MainGUI
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tooltextTrangThai});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 614);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 630);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(949, 22);
             this.statusStrip1.SizingGrip = false;
@@ -186,7 +186,7 @@ namespace ThuVien.MainGUI
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(949, 587);
+            this.tabControl1.Size = new System.Drawing.Size(949, 603);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -200,7 +200,7 @@ namespace ThuVien.MainGUI
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(941, 561);
+            this.tabPage1.Size = new System.Drawing.Size(941, 577);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Danh mục sách";
             // 
@@ -224,8 +224,49 @@ namespace ThuVien.MainGUI
             this.gridThongTinSach.ReadOnly = true;
             this.gridThongTinSach.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridThongTinSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridThongTinSach.Size = new System.Drawing.Size(935, 352);
+            this.gridThongTinSach.Size = new System.Drawing.Size(935, 368);
             this.gridThongTinSach.TabIndex = 11;
+            this.gridThongTinSach.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridThongTinSach_CellMouseClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "IDSach";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 250;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenSach";
+            this.Column2.HeaderText = "Tên sách";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 340;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "TacGia";
+            this.Column3.HeaderText = "Tác giả";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 250;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "LoaiSach";
+            this.Column5.HeaderText = "Loại sách";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 200;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "SoLuong";
+            this.Column4.HeaderText = "Số lượng";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // btnTimSach
             // 
@@ -235,6 +276,7 @@ namespace ThuVien.MainGUI
             this.btnTimSach.TabIndex = 10;
             this.btnTimSach.Text = "Tìm kiếm";
             this.btnTimSach.UseVisualStyleBackColor = true;
+            this.btnTimSach.Click += new System.EventHandler(this.btnTimSach_Click);
             // 
             // txtTimSach
             // 
@@ -273,6 +315,7 @@ namespace ThuVien.MainGUI
             this.btnThemSach.TabIndex = 5;
             this.btnThemSach.Text = "Thêm mới";
             this.btnThemSach.UseVisualStyleBackColor = true;
+            this.btnThemSach.Click += new System.EventHandler(this.btnThemSach_Click);
             // 
             // btnSuaSach
             // 
@@ -282,6 +325,7 @@ namespace ThuVien.MainGUI
             this.btnSuaSach.TabIndex = 6;
             this.btnSuaSach.Text = "Sửa thông tin";
             this.btnSuaSach.UseVisualStyleBackColor = true;
+            this.btnSuaSach.Click += new System.EventHandler(this.btnSuaSach_Click);
             // 
             // btnXoaSach
             // 
@@ -291,6 +335,7 @@ namespace ThuVien.MainGUI
             this.btnXoaSach.TabIndex = 7;
             this.btnXoaSach.Text = "Xóa";
             this.btnXoaSach.UseVisualStyleBackColor = true;
+            this.btnXoaSach.Click += new System.EventHandler(this.btnXoaSach_Click);
             // 
             // btnDienLaiSach
             // 
@@ -394,51 +439,11 @@ namespace ThuVien.MainGUI
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 250;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenSach";
-            this.Column2.HeaderText = "Tên sách";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 340;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TacGia";
-            this.Column3.HeaderText = "Tác giả";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 250;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "LoaiSach";
-            this.Column5.HeaderText = "Loại sách";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 200;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "SoLuong";
-            this.Column4.HeaderText = "Số lượng";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // frmMainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 636);
+            this.ClientSize = new System.Drawing.Size(949, 652);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
