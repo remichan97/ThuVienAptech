@@ -102,7 +102,7 @@ namespace ThuVien.MainGUI
             // 
             // userListToolStripMenuItem
             // 
-            this.userListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("userListToolStripMenuItem.Image")));
+            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
             this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
             this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
@@ -110,7 +110,7 @@ namespace ThuVien.MainGUI
             // 
             // changePasswordToolStripMenuItem
             // 
-            this.changePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolStripMenuItem.Image")));
+            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
             this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
@@ -119,7 +119,7 @@ namespace ThuVien.MainGUI
             // 
             // signOutToolStripMenuItem
             // 
-            this.signOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("signOutToolStripMenuItem.Image")));
+            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.signOutToolStripMenuItem.Text = "Đăng xuất";
@@ -132,7 +132,7 @@ namespace ThuVien.MainGUI
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
+            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.exitToolStripMenuItem.Text = "Thoát";
@@ -148,7 +148,7 @@ namespace ThuVien.MainGUI
             // 
             // studentListToolStripMenuItem
             // 
-            this.studentListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentListToolStripMenuItem.Image")));
+            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
             this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
             this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
