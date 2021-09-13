@@ -32,14 +32,13 @@ namespace ThuVien.MainGUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainGui));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSáchNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sốLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSáchSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tooltextTrangThai = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -92,37 +91,37 @@ namespace ThuVien.MainGUI
             // hệThốngToolStripMenuItem
             // 
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.danhSáchNgườiDùngToolStripMenuItem,
-            this.đổiMậtKhẩuToolStripMenuItem,
-            this.đăngXuấtToolStripMenuItem,
+            this.userListToolStripMenuItem,
+            this.changePasswordToolStripMenuItem,
+            this.signOutToolStripMenuItem,
             this.toolStripSeparator1,
             this.thoátToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
-            // danhSáchNgườiDùngToolStripMenuItem
+            // userListToolStripMenuItem
             // 
-            this.danhSáchNgườiDùngToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("danhSáchNgườiDùngToolStripMenuItem.Image")));
-            this.danhSáchNgườiDùngToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.danhSáchNgườiDùngToolStripMenuItem.Name = "danhSáchNgườiDùngToolStripMenuItem";
-            this.danhSáchNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.danhSáchNgườiDùngToolStripMenuItem.Text = "Danh sách người dùng";
+            this.userListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("userListToolStripMenuItem.Image")));
+            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
             // 
-            // đổiMậtKhẩuToolStripMenuItem
+            // changePasswordToolStripMenuItem
             // 
-            this.đổiMậtKhẩuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đổiMậtKhẩuToolStripMenuItem.Image")));
-            this.đổiMậtKhẩuToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
+            this.changePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolStripMenuItem.Image")));
+            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
-            // đăngXuấtToolStripMenuItem
+            // signOutToolStripMenuItem
             // 
-            this.đăngXuấtToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đăngXuấtToolStripMenuItem.Image")));
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.signOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("signOutToolStripMenuItem.Image")));
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.signOutToolStripMenuItem.Text = "Đăng xuất";
             // 
             // toolStripSeparator1
             // 
@@ -139,24 +138,17 @@ namespace ThuVien.MainGUI
             // sốLiệuToolStripMenuItem
             // 
             this.sốLiệuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.danhSáchSinhViênToolStripMenuItem,
-            this.báoCáoToolStripMenuItem});
+            this.studentListToolStripMenuItem});
             this.sốLiệuToolStripMenuItem.Name = "sốLiệuToolStripMenuItem";
             this.sốLiệuToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.sốLiệuToolStripMenuItem.Text = "Số liệu";
             // 
-            // danhSáchSinhViênToolStripMenuItem
+            // studentListToolStripMenuItem
             // 
-            this.danhSáchSinhViênToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("danhSáchSinhViênToolStripMenuItem.Image")));
-            this.danhSáchSinhViênToolStripMenuItem.Name = "danhSáchSinhViênToolStripMenuItem";
-            this.danhSáchSinhViênToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.danhSáchSinhViênToolStripMenuItem.Text = "Danh sách Sinh Viên";
-            // 
-            // báoCáoToolStripMenuItem
-            // 
-            this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.báoCáoToolStripMenuItem.Text = "Báo cáo";
+            this.studentListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("studentListToolStripMenuItem.Image")));
+            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
             // 
             // statusStrip1
             // 
@@ -426,7 +418,7 @@ namespace ThuVien.MainGUI
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(941, 561);
+            this.tabPage2.Size = new System.Drawing.Size(941, 577);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mượn sách";
             // 
@@ -435,7 +427,7 @@ namespace ThuVien.MainGUI
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(941, 561);
+            this.tabPage3.Size = new System.Drawing.Size(941, 577);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
             // 
@@ -479,12 +471,11 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.ToolStripMenuItem sốLiệuToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tooltextTrangThai;
-        private System.Windows.Forms.ToolStripMenuItem danhSáchNgườiDùngToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem danhSáchSinhViênToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem báoCáoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
