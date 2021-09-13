@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThuVien.Controller;
+using ThuVien.DialogueBox;
 
 namespace ThuVien.MainGUI
 {
@@ -189,5 +190,39 @@ namespace ThuVien.MainGUI
 				numSoLuong.Value = Convert.ToInt32(row.Cells[4].Value.ToString());
 			}
 		}
-	}
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			DialogueBox.PasswordChange.frmPasswordChange frm = new DialogueBox.PasswordChange.frmPasswordChange();
+			if (frm.ShowDialog() == DialogResult.OK)
+			{
+				MessageBox.Show("Đổi mật khẩu thành công!" + Environment.NewLine + "Bạn sẽ đăng xuất khỏi hệ thống, vui lòng đăng nhập lại với mật khẩu mới.", "Đổi mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				user.SignOut();
+				this.Hide();
+				frmSignIn m = new frmSignIn();
+				m.ShowDialog();
+			}
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			user.SignOut();
+			Application.Exit();
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			DialogResult dialogResult = new DialogResult();
+
+			dialogResult = MessageBox.Show("Bạn muốn đăng xuất hệ thống quản lý?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+			if (dialogResult == DialogResult.Yes)
+			{
+				user.SignOut();
+				frmSignIn frm = new frmSignIn();
+				this.Hide();
+				frm.ShowDialog();
+			}
+        }
+    }
 }

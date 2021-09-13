@@ -59,5 +59,19 @@ namespace ThuVien.Controller
 
             return userList;
         }
+
+        /// <summary>
+        /// Đổi mật khẩu tài khoản người dùng
+        /// </summary>
+        /// <param name="oldPassword">Mật khẩu cũ</param>
+        /// <param name="newPassword">Mật khẩu mới</param>
+        public void changePassword (string oldPassword, string newPassword)
+        {
+            SqlCommand cmd = new SqlCommand("HeThong_DoiMatKhau", db.GetConnection());
+            cmd.Parameters.AddWithValue("@old", oldPassword);
+            cmd.Parameters.AddWithValue("@new", newPassword);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+        }
     }
 }
