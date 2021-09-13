@@ -39,7 +39,7 @@ namespace ThuVien.Controller
         }
 
         /// <summary>
-        /// Thêm sách vào CSDL sử dụng sp "Sach_CapNhatThongTinSach"
+        /// Thêm sách vào CSDL sử dụng sp "Sach_CapNhatThongTin"
         /// </summary>
         /// <param name="TenSach">Tên sách cần thêm</param>
         /// <param name="TacGia">Tác giả sách</param>
@@ -47,7 +47,7 @@ namespace ThuVien.Controller
         /// <param name="SoLuong">Số lượng cần thêm</param>
         public void addBook(string TenSach, string TacGia, string LoaiSach, int SoLuong)
         {
-            SqlCommand cmd = new SqlCommand("Sach_CapNhatThongTinSach", db.GetConnection());
+            SqlCommand cmd = new SqlCommand("Sach_CapNhatThongTin", db.GetConnection());
 
             cmd.Parameters.AddWithValue("@IDSach", 0);
             cmd.Parameters.AddWithValue("@TenSach", TenSach);
@@ -60,7 +60,7 @@ namespace ThuVien.Controller
         }
 
         /// <summary>
-        /// Sửa thông tin sách sử dụng sp "Sach_CapNhatThongTinSach"
+        /// Sửa thông tin sách sử dụng sp "Sach_CapNhatThongTin"
         /// </summary>
         /// <param name="IDSach">Mã sách cần sửa</param>
         /// <param name="TenSach">Tên sách mới</param>
@@ -69,7 +69,7 @@ namespace ThuVien.Controller
         /// <param name="SoLuong">Số lượng mới</param>
         public void editBook(int IDSach, string TenSach, string TacGia, string LoaiSach, int SoLuong)
         {
-            SqlCommand cmd = new SqlCommand("Sach_CapNhatThongTinSach", db.GetConnection());
+            SqlCommand cmd = new SqlCommand("Sach_CapNhatThongTin", db.GetConnection());
 
             cmd.Parameters.AddWithValue("@IDSach", IDSach);
             cmd.Parameters.AddWithValue("@TenSach", TenSach);

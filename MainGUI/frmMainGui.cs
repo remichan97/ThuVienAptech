@@ -50,7 +50,7 @@ namespace ThuVien.MainGUI
 
 		private void frmMainGui_Load(object sender, EventArgs e)
 		{
-			_timer = new System.Timers.Timer(300);
+			_timer = new System.Timers.Timer(500);
 			_timer.Elapsed += systemTimer_Elapsed;
 			tooltextTrangThai.Text = "Sẵn sàng";
 			loadData();
@@ -78,6 +78,7 @@ namespace ThuVien.MainGUI
 			txtTacGia.Text = "";
 			txtLoaiSach.Text = "";
 			numSoLuong.Value = 0;
+			gridThongTinSach.ClearSelection();
 		}
 
 		private void btnTimSach_Click(object sender, EventArgs e)
@@ -111,6 +112,7 @@ namespace ThuVien.MainGUI
 				setStatus("Thêm dữ liệu thành công");
 				loadData();
 				gridThongTinSach.ClearSelection();
+				btnDienLaiSach_Click(null, null);
 			}
 			catch (SqlException ex)
 			{
@@ -126,7 +128,7 @@ namespace ThuVien.MainGUI
 
 			if (string.IsNullOrEmpty(txtTenSach.Text) || string.IsNullOrEmpty(txtTacGia.Text) || string.IsNullOrEmpty(txtLoaiSach.Text))
 			{
-				MessageBox.Show("Vui lòng chọn một sách ở bảng danh mục để sửa thông tin sách!", "Chưa chọn sách", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Vui lòng chọn một sách ở bảng danh mục để sửa thông tin!", "Chưa chọn sách", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 			try
@@ -177,14 +179,14 @@ namespace ThuVien.MainGUI
 
 		private void gridThongTinSach_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
 		{
-			if (e.RowIndex > 0)
+			if (e.RowIndex >= 0)
 			{
 				DataGridViewRow row = this.gridThongTinSach.Rows[e.RowIndex];
 
 				txtTenSach.Text = row.Cells[1].Value.ToString();
 				txtTacGia.Text = row.Cells[2].Value.ToString();
 				txtLoaiSach.Text = row.Cells[3].Value.ToString();
-				numSoLuong.Value = Convert.ToInt32(row.Cells[3].Value.ToString());
+				numSoLuong.Value = Convert.ToInt32(row.Cells[4].Value.ToString());
 			}
 		}
 	}
