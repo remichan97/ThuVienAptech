@@ -224,5 +224,15 @@ namespace ThuVien.MainGUI
 				frm.ShowDialog();
 			}
         }
+
+        private void userListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

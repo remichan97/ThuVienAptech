@@ -107,6 +107,7 @@ namespace ThuVien.MainGUI
             this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
             this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.userListToolStripMenuItem.Text = "Danh sách người dùng";
+            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
@@ -152,6 +153,7 @@ namespace ThuVien.MainGUI
             this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
             this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
+            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

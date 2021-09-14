@@ -54,6 +54,7 @@
     <Compile Include="Controller\Sach.cs" />
     <Compile Include="Controller\Data.cs" />
     <Compile Include="Controller\Database.cs" />
+    <Compile Include="Controller\SinhVien.cs" />
     <Compile Include="DialogueBox\frmStudentList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\icons8_sign_out_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\icons8_reset_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
