@@ -450,6 +450,7 @@ namespace ThuVien.MainGUI
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmMainGui";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Thư Viện";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainGui_FormClosing);

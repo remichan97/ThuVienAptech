@@ -55,16 +55,16 @@
     <Compile Include="Controller\Data.cs" />
     <Compile Include="Controller\Database.cs" />
     <Compile Include="Controller\SinhVien.cs" />
-    <Compile Include="DialogueBox\frmStudentList.cs">
+    <Compile Include="DialogueBox\StudentList\frmStudentList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DialogueBox\frmStudentList.Designer.cs">
+    <Compile Include="DialogueBox\StudentList\frmStudentList.Designer.cs">
       <DependentUpon>frmStudentList.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogueBox\frmUserList.cs">
+    <Compile Include="DialogueBox\UserList\frmUserList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DialogueBox\frmUserList.Designer.cs">
+    <Compile Include="DialogueBox\UserList\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
     <Compile Include="DialogueBox\PasswordChange\frmPasswordChange.cs">
@@ -87,10 +87,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DialogueBox\frmStudentList.resx">
+    <EmbeddedResource Include="DialogueBox\StudentList\frmStudentList.resx">
       <DependentUpon>frmStudentList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogueBox\frmUserList.resx">
+    <EmbeddedResource Include="DialogueBox\UserList\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogueBox\PasswordChange\frmPasswordChange.resx">
@@ -126,9 +126,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DialogueBox\UserList\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="img\icons8_about_48px.png" />
   </ItemGroup>

@@ -227,12 +227,14 @@ namespace ThuVien.MainGUI
 
         private void userListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+			frmUserList frm = new frmUserList();
+			frm.ShowDialog();
         }
 
         private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+			frmStudentList frm = new frmStudentList();
+			frm.ShowDialog();
         }
     }
 }
