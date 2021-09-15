@@ -38,6 +38,11 @@ namespace ThuVien.DialogueBox
             this.btnDeleteUser = new System.Windows.Forms.ToolStripButton();
             this.btnResetUser = new System.Windows.Forms.ToolStripButton();
             this.gridDanhSachNguoiDung = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkHidePassword = new System.Windows.Forms.CheckBox();
             this.txtVerify = new System.Windows.Forms.TextBox();
@@ -52,11 +57,6 @@ namespace ThuVien.DialogueBox
             this.label2 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDanhSachNguoiDung)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,6 +82,7 @@ namespace ThuVien.DialogueBox
             // 
             // txtSearchUser
             // 
+            this.txtSearchUser.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearchUser.Name = "txtSearchUser";
             this.txtSearchUser.Size = new System.Drawing.Size(150, 25);
             // 
@@ -155,140 +156,6 @@ namespace ThuVien.DialogueBox
             this.gridDanhSachNguoiDung.TabIndex = 2;
             this.gridDanhSachNguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDanhSachNguoiDung_CellClick);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkHidePassword);
-            this.groupBox1.Controls.Add(this.txtVerify);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtNewPassword);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtOldPassword);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.cmbUserStatus);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtAccountName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtUserName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 25);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(696, 121);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin người dùng";
-            // 
-            // checkHidePassword
-            // 
-            this.checkHidePassword.AutoSize = true;
-            this.checkHidePassword.Checked = true;
-            this.checkHidePassword.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkHidePassword.Location = new System.Drawing.Point(16, 98);
-            this.checkHidePassword.Name = "checkHidePassword";
-            this.checkHidePassword.Size = new System.Drawing.Size(118, 17);
-            this.checkHidePassword.TabIndex = 12;
-            this.checkHidePassword.Text = "Ẩn mật khẩu khi gõ";
-            this.checkHidePassword.UseVisualStyleBackColor = true;
-            this.checkHidePassword.CheckedChanged += new System.EventHandler(this.checkRevealPassword_CheckedChanged);
-            // 
-            // txtVerify
-            // 
-            this.txtVerify.Location = new System.Drawing.Point(550, 62);
-            this.txtVerify.Name = "txtVerify";
-            this.txtVerify.Size = new System.Drawing.Size(134, 20);
-            this.txtVerify.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(474, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Xác nhận MK";
-            // 
-            // txtNewPassword
-            // 
-            this.txtNewPassword.Location = new System.Drawing.Point(316, 62);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(151, 20);
-            this.txtNewPassword.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Mật khẩu mới";
-            // 
-            // txtOldPassword
-            // 
-            this.txtOldPassword.Location = new System.Drawing.Point(118, 62);
-            this.txtOldPassword.Name = "txtOldPassword";
-            this.txtOldPassword.Size = new System.Drawing.Size(119, 20);
-            this.txtOldPassword.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 65);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Mật khẩu hiện tại";
-            // 
-            // cmbUserStatus
-            // 
-            this.cmbUserStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbUserStatus.FormattingEnabled = true;
-            this.cmbUserStatus.Location = new System.Drawing.Point(550, 17);
-            this.cmbUserStatus.Name = "cmbUserStatus";
-            this.cmbUserStatus.Size = new System.Drawing.Size(134, 21);
-            this.cmbUserStatus.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(474, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Trạng thái";
-            // 
-            // txtAccountName
-            // 
-            this.txtAccountName.Location = new System.Drawing.Point(316, 17);
-            this.txtAccountName.Name = "txtAccountName";
-            this.txtAccountName.Size = new System.Drawing.Size(151, 20);
-            this.txtAccountName.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(243, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Tên đại diện";
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(118, 17);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(119, 20);
-            this.txtUserName.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên đăng nhập";
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "ID";
@@ -328,6 +195,140 @@ namespace ThuVien.DialogueBox
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkHidePassword);
+            this.groupBox1.Controls.Add(this.txtVerify);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtNewPassword);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtOldPassword);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cmbUserStatus);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtAccountName);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtUserName);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(696, 121);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin người dùng";
+            // 
+            // checkHidePassword
+            // 
+            this.checkHidePassword.AutoSize = true;
+            this.checkHidePassword.Checked = true;
+            this.checkHidePassword.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkHidePassword.Location = new System.Drawing.Point(16, 98);
+            this.checkHidePassword.Name = "checkHidePassword";
+            this.checkHidePassword.Size = new System.Drawing.Size(127, 17);
+            this.checkHidePassword.TabIndex = 12;
+            this.checkHidePassword.Text = "Ẩn mật khẩu khi gõ";
+            this.checkHidePassword.UseVisualStyleBackColor = true;
+            this.checkHidePassword.CheckedChanged += new System.EventHandler(this.checkRevealPassword_CheckedChanged);
+            // 
+            // txtVerify
+            // 
+            this.txtVerify.Location = new System.Drawing.Point(550, 62);
+            this.txtVerify.Name = "txtVerify";
+            this.txtVerify.Size = new System.Drawing.Size(134, 22);
+            this.txtVerify.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(474, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Xác nhận MK";
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.Location = new System.Drawing.Point(316, 62);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.Size = new System.Drawing.Size(151, 22);
+            this.txtNewPassword.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(243, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Mật khẩu mới";
+            // 
+            // txtOldPassword
+            // 
+            this.txtOldPassword.Location = new System.Drawing.Point(118, 62);
+            this.txtOldPassword.Name = "txtOldPassword";
+            this.txtOldPassword.Size = new System.Drawing.Size(119, 22);
+            this.txtOldPassword.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Mật khẩu hiện tại";
+            // 
+            // cmbUserStatus
+            // 
+            this.cmbUserStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUserStatus.FormattingEnabled = true;
+            this.cmbUserStatus.Location = new System.Drawing.Point(550, 17);
+            this.cmbUserStatus.Name = "cmbUserStatus";
+            this.cmbUserStatus.Size = new System.Drawing.Size(134, 21);
+            this.cmbUserStatus.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(474, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Trạng thái";
+            // 
+            // txtAccountName
+            // 
+            this.txtAccountName.Location = new System.Drawing.Point(316, 17);
+            this.txtAccountName.Name = "txtAccountName";
+            this.txtAccountName.Size = new System.Drawing.Size(151, 22);
+            this.txtAccountName.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(243, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Tên đại diện";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(118, 17);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(119, 22);
+            this.txtUserName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên đăng nhập";
+            // 
             // frmUserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +337,7 @@ namespace ThuVien.DialogueBox
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridDanhSachNguoiDung);
             this.Controls.Add(this.toolStrip1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -10,7 +10,7 @@ namespace ThuVien.Controller
 {
 	public class NguoiDung
 	{
-		Database db = new Database();
+		private Database db = new Database();
 		/// <summary>
 		/// Đăng nhập hệ thống quản lý
 		/// </summary>

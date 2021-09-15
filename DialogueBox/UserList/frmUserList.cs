@@ -80,7 +80,6 @@ namespace ThuVien.DialogueBox
 				user.addUser(txtUserName.Text, txtAccountName.Text, txtNewPassword.Text, Convert.ToInt32(cmbUserStatus.SelectedValue));
 				MessageBox.Show("Thêm dữ liệu thành công", "Thành công");
 				loadData();
-				gridDanhSachNguoiDung.ClearSelection();
 				btnResetUser_Click(null, null);
 			}
 			catch (SqlException ex)
@@ -109,7 +108,6 @@ namespace ThuVien.DialogueBox
 				user.editUser(Convert.ToInt32(id), txtUserName.Text, txtAccountName.Text, txtOldPassword.Text, txtNewPassword.Text, Convert.ToInt32(cmbUserStatus.SelectedValue));
 				MessageBox.Show("Cập nhật thông tin thành công", "Thành công");
 				loadData();
-				gridDanhSachNguoiDung.ClearSelection();
 				btnResetUser_Click(null, null);
 			}
 			catch (SqlException ex)
@@ -138,7 +136,6 @@ namespace ThuVien.DialogueBox
 					user.deleteUser(Convert.ToInt32(id));
 					MessageBox.Show("Đã xóa thông tin người dùng", "Xóa thành công");
 					loadData();
-					gridDanhSachNguoiDung.ClearSelection();
 					btnResetUser_Click(null, null);
 				}
 			}

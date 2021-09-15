@@ -10,7 +10,7 @@ namespace ThuVien.Controller
 {
     public class Sach
     {
-        Database db = new Database();
+        private Database db = new Database();
 
 
         /// <summary>

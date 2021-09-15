@@ -31,26 +31,26 @@ namespace ThuVien.DialogueBox
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.txtSearchStudent = new System.Windows.Forms.ToolStripTextBox();
+            this.btnSearchStudent = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddStudent = new System.Windows.Forms.ToolStripButton();
+            this.btnEditStudent = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteStudent = new System.Windows.Forms.ToolStripButton();
+            this.btnResetStudent = new System.Windows.Forms.ToolStripButton();
             this.gridDanhSachSinhVien = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMaSinhVien = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTenSinhVien = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbGioiTinh = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.btnSearchStudent = new System.Windows.Forms.ToolStripButton();
-            this.btnAddStudent = new System.Windows.Forms.ToolStripButton();
-            this.btnEditStudent = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteStudent = new System.Windows.Forms.ToolStripButton();
-            this.btnResetStudent = new System.Windows.Forms.ToolStripButton();
+            this.cmbGioiTinh = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTenSinhVien = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMaSinhVien = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDanhSachSinhVien)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,13 +76,59 @@ namespace ThuVien.DialogueBox
             // 
             // txtSearchStudent
             // 
+            this.txtSearchStudent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearchStudent.Name = "txtSearchStudent";
             this.txtSearchStudent.Size = new System.Drawing.Size(250, 25);
+            // 
+            // btnSearchStudent
+            // 
+            this.btnSearchStudent.Image = global::ThuVien.Properties.Resources.icons8_search_48px_1;
+            this.btnSearchStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSearchStudent.Name = "btnSearchStudent";
+            this.btnSearchStudent.Size = new System.Drawing.Size(76, 22);
+            this.btnSearchStudent.Text = "Tìm kiếm";
+            this.btnSearchStudent.Click += new System.EventHandler(this.btnSearchStudent_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnAddStudent
+            // 
+            this.btnAddStudent.Image = global::ThuVien.Properties.Resources.icons8_add_48px_1;
+            this.btnAddStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddStudent.Name = "btnAddStudent";
+            this.btnAddStudent.Size = new System.Drawing.Size(81, 22);
+            this.btnAddStudent.Text = "Thêm mới";
+            this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
+            // 
+            // btnEditStudent
+            // 
+            this.btnEditStudent.Image = global::ThuVien.Properties.Resources.icons8_edit_48px;
+            this.btnEditStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditStudent.Name = "btnEditStudent";
+            this.btnEditStudent.Size = new System.Drawing.Size(98, 22);
+            this.btnEditStudent.Text = "Sửa thông tin";
+            this.btnEditStudent.Click += new System.EventHandler(this.btnEditStudent_Click);
+            // 
+            // btnDeleteStudent
+            // 
+            this.btnDeleteStudent.Image = global::ThuVien.Properties.Resources.icons8_delete_48px_1;
+            this.btnDeleteStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteStudent.Name = "btnDeleteStudent";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(47, 22);
+            this.btnDeleteStudent.Text = "Xóa";
+            this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
+            // 
+            // btnResetStudent
+            // 
+            this.btnResetStudent.Image = global::ThuVien.Properties.Resources.icons8_reset_48px;
+            this.btnResetStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnResetStudent.Name = "btnResetStudent";
+            this.btnResetStudent.Size = new System.Drawing.Size(66, 22);
+            this.btnResetStudent.Text = "Điền lại";
+            this.btnResetStudent.Click += new System.EventHandler(this.btnResetStudent_Click);
             // 
             // gridDanhSachSinhVien
             // 
@@ -98,9 +144,11 @@ namespace ThuVien.DialogueBox
             this.gridDanhSachSinhVien.Location = new System.Drawing.Point(0, 132);
             this.gridDanhSachSinhVien.Name = "gridDanhSachSinhVien";
             this.gridDanhSachSinhVien.ReadOnly = true;
+            this.gridDanhSachSinhVien.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridDanhSachSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridDanhSachSinhVien.Size = new System.Drawing.Size(745, 318);
             this.gridDanhSachSinhVien.TabIndex = 1;
+            this.gridDanhSachSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDanhSachSinhVien_CellClick);
             // 
             // Column1
             // 
@@ -146,46 +194,21 @@ namespace ThuVien.DialogueBox
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sinh viên";
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Mã sinh viên";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Địa chỉ";
             // 
-            // txtMaSinhVien
+            // txtDiaChi
             // 
-            this.txtMaSinhVien.Location = new System.Drawing.Point(106, 19);
-            this.txtMaSinhVien.Name = "txtMaSinhVien";
-            this.txtMaSinhVien.Size = new System.Drawing.Size(143, 20);
-            this.txtMaSinhVien.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(255, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Tên sinh viên";
-            // 
-            // txtTenSinhVien
-            // 
-            this.txtTenSinhVien.Location = new System.Drawing.Point(332, 19);
-            this.txtTenSinhVien.Name = "txtTenSinhVien";
-            this.txtTenSinhVien.Size = new System.Drawing.Size(207, 20);
-            this.txtTenSinhVien.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(545, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Giới tính";
+            this.txtDiaChi.Location = new System.Drawing.Point(106, 59);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(633, 22);
+            this.txtDiaChi.TabIndex = 10;
             // 
             // cmbGioiTinh
             // 
@@ -196,61 +219,46 @@ namespace ThuVien.DialogueBox
             this.cmbGioiTinh.Size = new System.Drawing.Size(141, 21);
             this.cmbGioiTinh.TabIndex = 8;
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Địa chỉ";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(545, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Giới tính";
             // 
-            // txtDiaChi
+            // label2
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(106, 59);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(633, 20);
-            this.txtDiaChi.TabIndex = 10;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(255, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Tên sinh viên";
             // 
-            // btnSearchStudent
+            // txtTenSinhVien
             // 
-            this.btnSearchStudent.Image = global::ThuVien.Properties.Resources.icons8_search_48px_1;
-            this.btnSearchStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSearchStudent.Name = "btnSearchStudent";
-            this.btnSearchStudent.Size = new System.Drawing.Size(76, 22);
-            this.btnSearchStudent.Text = "Tìm kiếm";
+            this.txtTenSinhVien.Location = new System.Drawing.Point(332, 19);
+            this.txtTenSinhVien.Name = "txtTenSinhVien";
+            this.txtTenSinhVien.Size = new System.Drawing.Size(207, 22);
+            this.txtTenSinhVien.TabIndex = 6;
             // 
-            // btnAddStudent
+            // label1
             // 
-            this.btnAddStudent.Image = global::ThuVien.Properties.Resources.icons8_add_48px_1;
-            this.btnAddStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(81, 22);
-            this.btnAddStudent.Text = "Thêm mới";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Mã sinh viên";
             // 
-            // btnEditStudent
+            // txtMaSinhVien
             // 
-            this.btnEditStudent.Image = global::ThuVien.Properties.Resources.icons8_edit_48px;
-            this.btnEditStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditStudent.Name = "btnEditStudent";
-            this.btnEditStudent.Size = new System.Drawing.Size(98, 22);
-            this.btnEditStudent.Text = "Sửa thông tin";
-            // 
-            // btnDeleteStudent
-            // 
-            this.btnDeleteStudent.Image = global::ThuVien.Properties.Resources.icons8_delete_48px_1;
-            this.btnDeleteStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(47, 22);
-            this.btnDeleteStudent.Text = "Xóa";
-            // 
-            // btnResetStudent
-            // 
-            this.btnResetStudent.Image = global::ThuVien.Properties.Resources.icons8_reset_48px;
-            this.btnResetStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnResetStudent.Name = "btnResetStudent";
-            this.btnResetStudent.Size = new System.Drawing.Size(66, 22);
-            this.btnResetStudent.Text = "Điền lại";
+            this.txtMaSinhVien.Location = new System.Drawing.Point(106, 19);
+            this.txtMaSinhVien.Name = "txtMaSinhVien";
+            this.txtMaSinhVien.Size = new System.Drawing.Size(143, 22);
+            this.txtMaSinhVien.TabIndex = 4;
             // 
             // frmStudentList
             // 
@@ -260,6 +268,7 @@ namespace ThuVien.DialogueBox
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridDanhSachSinhVien);
             this.Controls.Add(this.toolStrip1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmStudentList";
@@ -267,6 +276,7 @@ namespace ThuVien.DialogueBox
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Danh sách sinh viên";
+            this.Load += new System.EventHandler(this.frmStudentList_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDanhSachSinhVien)).EndInit();
