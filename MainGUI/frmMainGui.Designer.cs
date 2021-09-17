@@ -66,7 +66,33 @@ namespace ThuVien.MainGUI
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnSearchBorrower = new System.Windows.Forms.Button();
+            this.txtSearchBorrower = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gridThongTinMuonSach = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnResetBorrowInfo = new System.Windows.Forms.Button();
+            this.btnAddBorrowInfo = new System.Windows.Forms.Button();
+            this.gridChiTietSachMuon = new System.Windows.Forms.DataGridView();
+            this.cmbSachMuon = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.txtBorrowQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateNgayTra = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateNgayMuon = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbTenNguoiMuon = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnUpdateBorrowInfo = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -74,6 +100,11 @@ namespace ThuVien.MainGUI
             ((System.ComponentModel.ISupportInitialize)(this.gridThongTinSach)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridThongTinMuonSach)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChiTietSachMuon)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -185,6 +216,7 @@ namespace ThuVien.MainGUI
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(949, 603);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -420,12 +452,265 @@ namespace ThuVien.MainGUI
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.btnSearchBorrower);
+            this.tabPage2.Controls.Add(this.txtSearchBorrower);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.gridThongTinMuonSach);
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(941, 577);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mượn sách";
+            // 
+            // btnSearchBorrower
+            // 
+            this.btnSearchBorrower.Location = new System.Drawing.Point(838, 275);
+            this.btnSearchBorrower.Name = "btnSearchBorrower";
+            this.btnSearchBorrower.Size = new System.Drawing.Size(94, 23);
+            this.btnSearchBorrower.TabIndex = 5;
+            this.btnSearchBorrower.Text = "Tìm kiếm";
+            this.btnSearchBorrower.UseVisualStyleBackColor = true;
+            this.btnSearchBorrower.Click += new System.EventHandler(this.btnSearchBorrower_Click);
+            // 
+            // txtSearchBorrower
+            // 
+            this.txtSearchBorrower.Location = new System.Drawing.Point(126, 275);
+            this.txtSearchBorrower.Name = "txtSearchBorrower";
+            this.txtSearchBorrower.Size = new System.Drawing.Size(706, 22);
+            this.txtSearchBorrower.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 278);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Tìm tên người mượn";
+            // 
+            // gridThongTinMuonSach
+            // 
+            this.gridThongTinMuonSach.AllowUserToAddRows = false;
+            this.gridThongTinMuonSach.AllowUserToDeleteRows = false;
+            this.gridThongTinMuonSach.AllowUserToResizeColumns = false;
+            this.gridThongTinMuonSach.AllowUserToResizeRows = false;
+            this.gridThongTinMuonSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridThongTinMuonSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11});
+            this.gridThongTinMuonSach.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridThongTinMuonSach.Location = new System.Drawing.Point(3, 312);
+            this.gridThongTinMuonSach.MultiSelect = false;
+            this.gridThongTinMuonSach.Name = "gridThongTinMuonSach";
+            this.gridThongTinMuonSach.ReadOnly = true;
+            this.gridThongTinMuonSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridThongTinMuonSach.Size = new System.Drawing.Size(935, 262);
+            this.gridThongTinMuonSach.TabIndex = 2;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "ID";
+            this.Column6.HeaderText = "ID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "TenSinhVien";
+            this.Column7.HeaderText = "Tên người mượn";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 250;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "NgayMuon";
+            this.Column8.HeaderText = "Ngày mượn";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 150;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "NgayTra";
+            this.Column9.HeaderText = "Ngày trả";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 150;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "SoLuongMuon";
+            this.Column10.HeaderText = "Số lượng mượn";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 150;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "GhiChu";
+            this.Column11.HeaderText = "Ghi chú";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 185;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnUpdateBorrowInfo);
+            this.groupBox3.Controls.Add(this.btnResetBorrowInfo);
+            this.groupBox3.Controls.Add(this.btnAddBorrowInfo);
+            this.groupBox3.Controls.Add(this.gridChiTietSachMuon);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 123);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(935, 141);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Thông tin sách mượn";
+            // 
+            // btnResetBorrowInfo
+            // 
+            this.btnResetBorrowInfo.Location = new System.Drawing.Point(211, 118);
+            this.btnResetBorrowInfo.Name = "btnResetBorrowInfo";
+            this.btnResetBorrowInfo.Size = new System.Drawing.Size(92, 23);
+            this.btnResetBorrowInfo.TabIndex = 4;
+            this.btnResetBorrowInfo.Text = "Điền lại";
+            this.btnResetBorrowInfo.UseVisualStyleBackColor = true;
+            this.btnResetBorrowInfo.Click += new System.EventHandler(this.btnResetBorrowInfo_Click);
+            // 
+            // btnAddBorrowInfo
+            // 
+            this.btnAddBorrowInfo.Location = new System.Drawing.Point(8, 118);
+            this.btnAddBorrowInfo.Name = "btnAddBorrowInfo";
+            this.btnAddBorrowInfo.Size = new System.Drawing.Size(92, 23);
+            this.btnAddBorrowInfo.TabIndex = 1;
+            this.btnAddBorrowInfo.Text = "Mượn sách";
+            this.btnAddBorrowInfo.UseVisualStyleBackColor = true;
+            this.btnAddBorrowInfo.Click += new System.EventHandler(this.btnAddBorrowInfo_Click);
+            // 
+            // gridChiTietSachMuon
+            // 
+            this.gridChiTietSachMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridChiTietSachMuon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmbSachMuon,
+            this.txtBorrowQuantity});
+            this.gridChiTietSachMuon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridChiTietSachMuon.Location = new System.Drawing.Point(3, 18);
+            this.gridChiTietSachMuon.Name = "gridChiTietSachMuon";
+            this.gridChiTietSachMuon.Size = new System.Drawing.Size(929, 94);
+            this.gridChiTietSachMuon.TabIndex = 0;
+            // 
+            // cmbSachMuon
+            // 
+            this.cmbSachMuon.HeaderText = "Tên sách mượn";
+            this.cmbSachMuon.Name = "cmbSachMuon";
+            this.cmbSachMuon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmbSachMuon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.cmbSachMuon.Width = 250;
+            // 
+            // txtBorrowQuantity
+            // 
+            this.txtBorrowQuantity.HeaderText = "Số lượng mượn";
+            this.txtBorrowQuantity.Name = "txtBorrowQuantity";
+            this.txtBorrowQuantity.Width = 150;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtGhiChu);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.dateNgayTra);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.dateNgayMuon);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.cmbTenNguoiMuon);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(935, 120);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Thông tin người mượn";
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.Location = new System.Drawing.Point(106, 47);
+            this.txtGhiChu.MaxLength = 500;
+            this.txtGhiChu.Multiline = true;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtGhiChu.Size = new System.Drawing.Size(823, 67);
+            this.txtGhiChu.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 70);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Ghi chú";
+            // 
+            // dateNgayTra
+            // 
+            this.dateNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNgayTra.Location = new System.Drawing.Point(729, 19);
+            this.dateNgayTra.Name = "dateNgayTra";
+            this.dateNgayTra.Size = new System.Drawing.Size(201, 22);
+            this.dateNgayTra.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(673, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Ngày trả";
+            // 
+            // dateNgayMuon
+            // 
+            this.dateNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNgayMuon.Location = new System.Drawing.Point(467, 19);
+            this.dateNgayMuon.Name = "dateNgayMuon";
+            this.dateNgayMuon.Size = new System.Drawing.Size(200, 22);
+            this.dateNgayMuon.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(395, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Ngày mượn";
+            // 
+            // cmbTenNguoiMuon
+            // 
+            this.cmbTenNguoiMuon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTenNguoiMuon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbTenNguoiMuon.FormattingEnabled = true;
+            this.cmbTenNguoiMuon.Location = new System.Drawing.Point(106, 19);
+            this.cmbTenNguoiMuon.Name = "cmbTenNguoiMuon";
+            this.cmbTenNguoiMuon.Size = new System.Drawing.Size(274, 21);
+            this.cmbTenNguoiMuon.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Tên người mượn";
             // 
             // tabPage3
             // 
@@ -435,6 +720,15 @@ namespace ThuVien.MainGUI
             this.tabPage3.Size = new System.Drawing.Size(941, 577);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
+            // 
+            // btnUpdateBorrowInfo
+            // 
+            this.btnUpdateBorrowInfo.Location = new System.Drawing.Point(106, 118);
+            this.btnUpdateBorrowInfo.Name = "btnUpdateBorrowInfo";
+            this.btnUpdateBorrowInfo.Size = new System.Drawing.Size(99, 23);
+            this.btnUpdateBorrowInfo.TabIndex = 5;
+            this.btnUpdateBorrowInfo.Text = "Sửa thông tin";
+            this.btnUpdateBorrowInfo.UseVisualStyleBackColor = true;
             // 
             // frmMainGui
             // 
@@ -466,6 +760,13 @@ namespace ThuVien.MainGUI
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridThongTinMuonSach)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridChiTietSachMuon)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,5 +811,31 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnSearchBorrower;
+        private System.Windows.Forms.TextBox txtSearchBorrower;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView gridThongTinMuonSach;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnResetBorrowInfo;
+        private System.Windows.Forms.Button btnAddBorrowInfo;
+        private System.Windows.Forms.DataGridView gridChiTietSachMuon;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtGhiChu;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateNgayTra;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateNgayMuon;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbTenNguoiMuon;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cmbSachMuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtBorrowQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.Button btnUpdateBorrowInfo;
     }
 }

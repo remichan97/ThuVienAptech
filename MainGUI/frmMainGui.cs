@@ -18,7 +18,8 @@ namespace ThuVien.MainGUI
 	{
 		NguoiDung user = new NguoiDung();
 		Sach book = new Sach();
-
+		SinhVien sv = new SinhVien();
+		MuonSach muon = new MuonSach();
 		private System.Timers.Timer _timer = null;
 		public frmMainGui()
 		{
@@ -29,6 +30,17 @@ namespace ThuVien.MainGUI
 		{
 			DataTable bookList = book.getBookList(null);
 			gridThongTinSach.DataSource = bookList;
+			DataTable borrowList = muon.GetDanhMucMuonSach(null);
+			gridThongTinMuonSach.DataSource = borrowList;
+			cmbSachMuon.DataSource = bookList;
+			cmbSachMuon.DisplayMember = "TenSach";
+			cmbSachMuon.ValueMember = "IDSach";
+			DataTable sinhVien = sv.GetStudentList(null);
+			cmbTenNguoiMuon.DataSource = sinhVien;
+			cmbTenNguoiMuon.DisplayMember = "TenSinhVien";
+			cmbTenNguoiMuon.ValueMember = "MaSinhVien";
+			DataTable muonSach = muon.GetDanhMucMuonSach(null);
+			gridThongTinMuonSach.DataSource = muonSach;
 		}
 
 		private void frmMainGui_FormClosing(object sender, FormClosingEventArgs e)
@@ -59,6 +71,8 @@ namespace ThuVien.MainGUI
 			{
 				gridThongTinSach.ClearSelection();
 			}
+			cmbTenNguoiMuon.SelectedIndex = -1;
+			cmbSachMuon.Selected = false;
 		}
 
 		void systemTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -167,7 +181,11 @@ namespace ThuVien.MainGUI
 					book.deleteBook(id);
 					setStatus("Đã xóa thông tin sách");
 					loadData();
-					gridThongTinSach.ClearSelection();
+					if (gridThongTinSach.Rows.Count > 0)
+					{
+						gridThongTinSach.ClearSelection();
+
+					}
 					btnDienLaiSach_Click(null, null);
 				}
 				catch (SqlException ex)
@@ -191,8 +209,8 @@ namespace ThuVien.MainGUI
 			}
 		}
 
-        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			DialogueBox.PasswordChange.frmPasswordChange frm = new DialogueBox.PasswordChange.frmPasswordChange();
 			if (frm.ShowDialog() == DialogResult.OK)
 			{
@@ -202,16 +220,16 @@ namespace ThuVien.MainGUI
 				frmSignIn m = new frmSignIn();
 				m.ShowDialog();
 			}
-        }
+		}
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			user.SignOut();
 			Application.Exit();
-        }
+		}
 
-        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			DialogResult dialogResult = new DialogResult();
 
 			dialogResult = MessageBox.Show("Bạn muốn đăng xuất hệ thống quản lý?", "Đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -223,18 +241,105 @@ namespace ThuVien.MainGUI
 				this.Hide();
 				frm.ShowDialog();
 			}
-        }
+		}
 
-        private void userListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		private void userListToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			frmUserList frm = new frmUserList();
 			frm.ShowDialog();
-        }
+		}
 
-        private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			frmStudentList frm = new frmStudentList();
 			frm.ShowDialog();
-        }
-    }
+		}
+
+		///Tab mượn sách:
+
+		private void btnResetBorrowInfo_Click(object sender, EventArgs e)
+		{
+			txtGhiChu.Text = "";
+			cmbTenNguoiMuon.SelectedIndex = -1;
+			dateNgayMuon.Value = DateTime.Now;
+			dateNgayTra.Value = DateTime.Now;
+			gridChiTietSachMuon.Refresh();
+		}
+
+		private void btnAddBorrowInfo_Click(object sender, EventArgs e)
+		{
+			if (cmbTenNguoiMuon.SelectedIndex == -1 || gridChiTietSachMuon.Rows.Count == 0)
+			{
+				MessageBox.Show("Vui lòng điền các thông tin cần thiết trước khi thêm dữ liệu người mượn", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+			if (dateNgayTra.Value < dateNgayMuon.Value)
+			{
+				MessageBox.Show("Bạn không thể cho sinh viên mượn sách đền ngày trước ngày hôm nay!", "Dữ liệu ngày giò sai", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			Dictionary<int, int> borrowBookList = new Dictionary<int, int>();
+			for (int i = 0; i < gridChiTietSachMuon.Rows.Count; i++)
+			{
+				if (gridChiTietSachMuon.Rows[i].Cells[0].Value != null)
+				{
+					try
+					{
+						borrowBookList.Add(Convert.ToInt32(gridChiTietSachMuon.Rows[i].Cells[0].Value), Convert.ToInt32(gridChiTietSachMuon.Rows[i].Cells[1].Value));
+					}
+					catch (ArgumentException)
+					{
+						MessageBox.Show("Có sách bị trùng trong danh sách các đầu sách cần mượn của sinh viên. Vui lòng kiểm tra lại", "Trùng sách", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					}
+				}
+			}
+
+			DialogResult a = new DialogResult();
+
+			string message = "Bạn sắp sửa thêm dữ liệu mượn sách của sinh viên." + Environment.NewLine + "Lưu ý rằng sau khi thêm, dữ liệu sẽ không thể bị xóa khỏi CSDL!" + Environment.NewLine + "Bạn có muốn thêm dữ liệu đã nhập vào CSDL?";
+			a = MessageBox.Show(message, "Xác nhận thêm dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+			if (a == DialogResult.Yes)
+			{
+				try
+				{
+					muon.muonSach(cmbTenNguoiMuon.SelectedValue.ToString(), dateNgayMuon.Value.ToString(), dateNgayTra.Value.ToString(), txtGhiChu.Text, borrowBookList);
+					setStatus("Thêm thông tin người mượn thành công");
+					loadData();
+					gridThongTinMuonSach.ClearSelection();
+					btnResetBorrowInfo_Click(null, null);
+				}
+				catch (SqlException ex)
+				{
+					MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+			}
+		}
+
+		private void btnSearchBorrower_Click(object sender, EventArgs e)
+		{
+			if (string.IsNullOrEmpty(txtSearchBorrower.Text))
+			{
+				loadData();
+			}
+			else
+			{
+				DataTable brList = muon.GetDanhMucMuonSach(txtSearchBorrower.Text);
+				gridThongTinMuonSach.DataSource = brList;
+				if (gridThongTinMuonSach.Rows.Count > 0)
+				{
+					gridThongTinMuonSach.ClearSelection();
+				}
+			}
+		}
+
+		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (gridThongTinMuonSach.Rows.Count > 0)
+			{
+				gridThongTinMuonSach.ClearSelection();
+			}
+		}
+	}
 }
