@@ -127,7 +127,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="img\icons8_database_administrator_48px.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="img\icons8_about_48px.png" />
   </ItemGroup>

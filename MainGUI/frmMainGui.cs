@@ -32,7 +32,8 @@ namespace ThuVien.MainGUI
 			gridThongTinSach.DataSource = bookList;
 			DataTable borrowList = muon.GetDanhMucMuonSach(null);
 			gridThongTinMuonSach.DataSource = borrowList;
-			cmbSachMuon.DataSource = bookList;
+			DataTable borrowable = book.getBorrowableBooks();
+			cmbSachMuon.DataSource = borrowable;
 			cmbSachMuon.DisplayMember = "TenSach";
 			cmbSachMuon.ValueMember = "IDSach";
 			DataTable sinhVien = sv.GetStudentList(null);
@@ -63,7 +64,7 @@ namespace ThuVien.MainGUI
 
 		private void frmMainGui_Load(object sender, EventArgs e)
 		{
-			_timer = new System.Timers.Timer(500);
+			_timer = new System.Timers.Timer(3000);
 			_timer.Elapsed += systemTimer_Elapsed;
 			tooltextTrangThai.Text = "Sẵn sàng";
 			loadData();
@@ -263,6 +264,7 @@ namespace ThuVien.MainGUI
 			cmbTenNguoiMuon.SelectedIndex = -1;
 			dateNgayMuon.Value = DateTime.Now;
 			dateNgayTra.Value = DateTime.Now;
+			gridChiTietSachMuon.Rows.Clear();
 			gridChiTietSachMuon.Refresh();
 		}
 
@@ -275,7 +277,7 @@ namespace ThuVien.MainGUI
 			}
 			if (dateNgayTra.Value < dateNgayMuon.Value)
 			{
-				MessageBox.Show("Bạn không thể cho sinh viên mượn sách đền ngày trước ngày hôm nay!", "Dữ liệu ngày giò sai", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Bạn không thể cho sinh viên mượn sách đền ngày trước ngày hôm nay!", "Dữ liệu ngày giờ sai", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 
@@ -297,14 +299,14 @@ namespace ThuVien.MainGUI
 
 			DialogResult a = new DialogResult();
 
-			string message = "Bạn sắp sửa thêm dữ liệu mượn sách của sinh viên." + Environment.NewLine + "Lưu ý rằng sau khi thêm, dữ liệu sẽ không thể bị xóa khỏi CSDL!" + Environment.NewLine + "Bạn có muốn thêm dữ liệu đã nhập vào CSDL?";
+			string message = "Bạn sắp sửa thêm dữ liệu mượn sách của sinh viên." + Environment.NewLine + "Lưu ý rằng sau khi thêm, dữ liệu sẽ không thể sửa đổi hoặc bị xóa khỏi CSDL!" + Environment.NewLine + "Trước khi thêm dữ liệu vui lòng đảm bảo dữ liệu nhập vào là chính xác!" + Environment.NewLine + "Bạn có muốn thêm dữ liệu đã nhập vào CSDL?";
 			a = MessageBox.Show(message, "Xác nhận thêm dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
 			if (a == DialogResult.Yes)
 			{
 				try
 				{
-					muon.muonSach(cmbTenNguoiMuon.SelectedValue.ToString(), dateNgayMuon.Value.ToString(), dateNgayTra.Value.ToString(), txtGhiChu.Text, borrowBookList);
+					muon.muonSach(cmbTenNguoiMuon.SelectedValue.ToString(), dateNgayMuon.Value.Date.ToString(), dateNgayTra.Value.Date.ToString(), txtGhiChu.Text, borrowBookList);
 					setStatus("Thêm thông tin người mượn thành công");
 					loadData();
 					gridThongTinMuonSach.ClearSelection();
@@ -341,5 +343,26 @@ namespace ThuVien.MainGUI
 				gridThongTinMuonSach.ClearSelection();
 			}
 		}
-	}
+
+		private void gridThongTinMuonSach_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex >= 0)
+			{
+				DataGridViewRow row = gridThongTinMuonSach.CurrentRow;
+				cmbTenNguoiMuon.SelectedIndex = cmbTenNguoiMuon.FindStringExact(row.Cells[1].Value.ToString());
+				dateNgayMuon.Text = row.Cells[2].Value.ToString();
+				dateNgayTra.Text = row.Cells[3].Value.ToString();
+				txtGhiChu.Text = row.Cells[5].Value.ToString();
+			}
+		}
+
+        private void cmbTenNguoiMuon_Leave(object sender, EventArgs e)
+        {
+			string test = cmbTenNguoiMuon.Text;
+			if((cmbTenNguoiMuon.SelectedIndex = cmbTenNguoiMuon.FindStringExact(test)) == -1)
+            {
+				cmbTenNguoiMuon.Text = "";
+            }
+        }
+    }
 }

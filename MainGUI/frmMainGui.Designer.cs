@@ -32,13 +32,8 @@ namespace ThuVien.MainGUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainGui));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sốLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tooltextTrangThai = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -92,7 +87,14 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiMuon = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnUpdateBorrowInfo = new System.Windows.Forms.Button();
+            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -105,6 +107,8 @@ namespace ThuVien.MainGUI
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridChiTietSachMuon)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -124,51 +128,18 @@ namespace ThuVien.MainGUI
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userListToolStripMenuItem,
             this.changePasswordToolStripMenuItem,
-            this.signOutToolStripMenuItem,
+            this.backupRestoreToolStripMenuItem,
             this.toolStripSeparator1,
+            this.signOutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
-            // userListToolStripMenuItem
-            // 
-            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
-            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
-            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
-            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
-            // signOutToolStripMenuItem
-            // 
-            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
-            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.signOutToolStripMenuItem.Text = "Đăng xuất";
-            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.exitToolStripMenuItem.Text = "Thoát";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // sốLiệuToolStripMenuItem
             // 
@@ -177,14 +148,6 @@ namespace ThuVien.MainGUI
             this.sốLiệuToolStripMenuItem.Name = "sốLiệuToolStripMenuItem";
             this.sốLiệuToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.sốLiệuToolStripMenuItem.Text = "Số liệu";
-            // 
-            // studentListToolStripMenuItem
-            // 
-            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
-            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
-            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -513,6 +476,7 @@ namespace ThuVien.MainGUI
             this.gridThongTinMuonSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridThongTinMuonSach.Size = new System.Drawing.Size(935, 262);
             this.gridThongTinMuonSach.TabIndex = 2;
+            this.gridThongTinMuonSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridThongTinMuonSach_CellClick);
             // 
             // Column6
             // 
@@ -564,7 +528,6 @@ namespace ThuVien.MainGUI
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnUpdateBorrowInfo);
             this.groupBox3.Controls.Add(this.btnResetBorrowInfo);
             this.groupBox3.Controls.Add(this.btnAddBorrowInfo);
             this.groupBox3.Controls.Add(this.gridChiTietSachMuon);
@@ -578,7 +541,7 @@ namespace ThuVien.MainGUI
             // 
             // btnResetBorrowInfo
             // 
-            this.btnResetBorrowInfo.Location = new System.Drawing.Point(211, 118);
+            this.btnResetBorrowInfo.Location = new System.Drawing.Point(106, 118);
             this.btnResetBorrowInfo.Name = "btnResetBorrowInfo";
             this.btnResetBorrowInfo.Size = new System.Drawing.Size(92, 23);
             this.btnResetBorrowInfo.TabIndex = 4;
@@ -610,6 +573,7 @@ namespace ThuVien.MainGUI
             // 
             // cmbSachMuon
             // 
+            this.cmbSachMuon.DataPropertyName = "IDSachMuon";
             this.cmbSachMuon.HeaderText = "Tên sách mượn";
             this.cmbSachMuon.Name = "cmbSachMuon";
             this.cmbSachMuon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -618,6 +582,7 @@ namespace ThuVien.MainGUI
             // 
             // txtBorrowQuantity
             // 
+            this.txtBorrowQuantity.DataPropertyName = "SoLuongMuon";
             this.txtBorrowQuantity.HeaderText = "Số lượng mượn";
             this.txtBorrowQuantity.Name = "txtBorrowQuantity";
             this.txtBorrowQuantity.Width = 150;
@@ -661,7 +626,8 @@ namespace ThuVien.MainGUI
             // 
             // dateNgayTra
             // 
-            this.dateNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNgayTra.CustomFormat = "dd/MM/yyyy";
+            this.dateNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateNgayTra.Location = new System.Drawing.Point(729, 19);
             this.dateNgayTra.Name = "dateNgayTra";
             this.dateNgayTra.Size = new System.Drawing.Size(201, 22);
@@ -678,7 +644,8 @@ namespace ThuVien.MainGUI
             // 
             // dateNgayMuon
             // 
-            this.dateNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateNgayMuon.CustomFormat = "dd/MM/yyyy";
+            this.dateNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateNgayMuon.Location = new System.Drawing.Point(467, 19);
             this.dateNgayMuon.Name = "dateNgayMuon";
             this.dateNgayMuon.Size = new System.Drawing.Size(200, 22);
@@ -702,6 +669,7 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiMuon.Name = "cmbTenNguoiMuon";
             this.cmbTenNguoiMuon.Size = new System.Drawing.Size(274, 21);
             this.cmbTenNguoiMuon.TabIndex = 1;
+            this.cmbTenNguoiMuon.Leave += new System.EventHandler(this.cmbTenNguoiMuon_Leave);
             // 
             // label7
             // 
@@ -715,20 +683,82 @@ namespace ThuVien.MainGUI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(941, 577);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
             // 
-            // btnUpdateBorrowInfo
+            // userListToolStripMenuItem
             // 
-            this.btnUpdateBorrowInfo.Location = new System.Drawing.Point(106, 118);
-            this.btnUpdateBorrowInfo.Name = "btnUpdateBorrowInfo";
-            this.btnUpdateBorrowInfo.Size = new System.Drawing.Size(99, 23);
-            this.btnUpdateBorrowInfo.TabIndex = 5;
-            this.btnUpdateBorrowInfo.Text = "Sửa thông tin";
-            this.btnUpdateBorrowInfo.UseVisualStyleBackColor = true;
+            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
+            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
+            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
+            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu...";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // backupRestoreToolStripMenuItem
+            // 
+            this.backupRestoreToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_database_administrator_48px;
+            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
+            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.backupRestoreToolStripMenuItem.Text = "Sao lưu/Phục hồi..";
+            // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.signOutToolStripMenuItem.Text = "Đăng xuất";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.exitToolStripMenuItem.Text = "Thoát";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // studentListToolStripMenuItem
+            // 
+            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
+            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
+            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(941, 143);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Tìm kiếm thông tin mượn sách";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(9, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(549, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Nhập các thông tin về người mượn tại các ô nhập bên dưới để tiến hành tìm kiếm th" +
+    "ông tin người mượn:";
             // 
             // frmMainGui
             // 
@@ -767,6 +797,9 @@ namespace ThuVien.MainGUI
             ((System.ComponentModel.ISupportInitialize)(this.gridChiTietSachMuon)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -828,14 +861,16 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbTenNguoiMuon;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cmbSachMuon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn txtBorrowQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.Button btnUpdateBorrowInfo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cmbSachMuon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtBorrowQuantity;
+        private System.Windows.Forms.ToolStripMenuItem backupRestoreToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label11;
     }
 }
