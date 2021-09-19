@@ -20,6 +20,7 @@ namespace ThuVien.MainGUI
 		Sach book = new Sach();
 		SinhVien sv = new SinhVien();
 		MuonSach muon = new MuonSach();
+		TraSach tra = new TraSach();
 		private System.Timers.Timer _timer = null;
 		public frmMainGui()
 		{
@@ -28,8 +29,10 @@ namespace ThuVien.MainGUI
 
 		private void loadData()
 		{
+			//Dữ liệu phần danh mục sách:
 			DataTable bookList = book.getBookList(null);
 			gridThongTinSach.DataSource = bookList;
+			//Dữ liệu phần mượn sách
 			DataTable borrowList = muon.GetDanhMucMuonSach(null);
 			gridThongTinMuonSach.DataSource = borrowList;
 			DataTable borrowable = book.getBorrowableBooks();
@@ -41,8 +44,11 @@ namespace ThuVien.MainGUI
 			cmbTenNguoiMuon.DisplayMember = "TenSinhVien";
 			cmbTenNguoiMuon.ValueMember = "MaSinhVien";
 			cmbTenNguoiMuon.SelectedIndex = -1;
-			DataTable muonSach = muon.GetDanhMucMuonSach(null);
-			gridThongTinMuonSach.DataSource = muonSach;
+			//Dữ liệu phần trả sách:
+			cmbTenNguoiTraSach.DataSource = sinhVien;
+			cmbTenNguoiTraSach.DisplayMember = "TenSinhVien";
+			cmbTenNguoiTraSach.ValueMember = "MaSinhVien";
+			cmbTenNguoiTraSach.SelectedIndex = -1;
 		}
 
 		private void frmMainGui_FormClosing(object sender, FormClosingEventArgs e)
@@ -278,7 +284,7 @@ namespace ThuVien.MainGUI
 			}
 			if (dateNgayTra.Value < dateNgayMuon.Value)
 			{
-				MessageBox.Show("Bạn không thể cho sinh viên mượn sách đền ngày trước ngày hôm nay!", "Dữ liệu ngày giờ sai", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Bạn không thể cho sinh viên mượn sách đến ngày trước ngày hôm nay!", "Dữ liệu ngày giờ sai", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 
@@ -307,7 +313,7 @@ namespace ThuVien.MainGUI
 			{
 				try
 				{
-					muon.muonSach(cmbTenNguoiMuon.SelectedValue.ToString(), dateNgayMuon.Value.Date.ToString(), dateNgayTra.Value.Date.ToString(), txtGhiChu.Text, borrowBookList);
+					muon.muonSach(cmbTenNguoiMuon.SelectedValue.ToString(), dateNgayMuon.Value.ToShortDateString(), dateNgayTra.Value.ToShortDateString(), txtGhiChu.Text, borrowBookList);
 					setStatus("Thêm thông tin người mượn thành công");
 					loadData();
 					gridThongTinMuonSach.ClearSelection();
@@ -335,7 +341,7 @@ namespace ThuVien.MainGUI
 					gridThongTinMuonSach.ClearSelection();
 				}
 			}
-			if(String.IsNullOrEmpty(cmbTenNguoiMuon.Text)) cmbTenNguoiMuon.SelectedIndex = -1;
+			if (String.IsNullOrEmpty(cmbTenNguoiMuon.Text)) cmbTenNguoiMuon.SelectedIndex = -1;
 		}
 
 		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -361,10 +367,96 @@ namespace ThuVien.MainGUI
 		private void cmbTenNguoiMuon_Leave(object sender, EventArgs e)
 		{
 			string test = cmbTenNguoiMuon.Text;
-			if((cmbTenNguoiMuon.SelectedIndex = cmbTenNguoiMuon.FindStringExact(test)) == -1)
+			if ((cmbTenNguoiMuon.SelectedIndex = cmbTenNguoiMuon.FindStringExact(test)) == -1)
 			{
 				cmbTenNguoiMuon.Text = "";
 			}
 		}
-	}
+
+		private void cmbTenNguoiTraSach_Leave(object sender, EventArgs e)
+		{
+			string test = cmbTenNguoiTraSach.Text;
+			if ((cmbTenNguoiTraSach.SelectedIndex = cmbTenNguoiTraSach.FindStringExact(test)) == -1)
+			{
+				cmbTenNguoiTraSach.Text = "";
+			}
+		}
+
+		private void btnSearchReturn_Click(object sender, EventArgs e)
+		{
+			if (cmbTenNguoiTraSach.SelectedIndex == -1)
+			{
+				MessageBox.Show("Vui lòng chọn hoặc nhập tên sinh viên để tiến hành tìm kiếm", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information); return;
+			}
+			if (dateNgayTraReturn.Value < dateNgayMuonReturn.Value)
+			{
+				MessageBox.Show("Không thể mượn sách đến ngày trước ngày mượn", "Dữ liệu không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+			try
+			{
+				DataTable danhSachMuon = tra.timKiemThongTinNguoiMuon(cmbTenNguoiTraSach.SelectedValue.ToString(), dateNgayMuonReturn.Value.ToShortDateString(), dateNgayTraReturn.Value.ToShortDateString());
+				gridChiTietTraSach.DataSource = danhSachMuon;
+				gridChiTietTraSach.ClearSelection();
+			}
+			catch (SqlException ex)
+			{
+				 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+
+		private void btnResetReturn_Click(object sender, EventArgs e)
+		{
+			cmbTenNguoiTraSach.SelectedIndex = -1;
+			dateNgayMuonReturn.Value = DateTime.Now;
+			dateNgayTraReturn.Value = DateTime.Now;
+			DataTable empty = tra.timKiemThongTinNguoiMuon(null, null, null);
+			gridChiTietTraSach.DataSource = empty;
+			radioReturnAll.Checked = false;
+			radioReturnSelected.Checked = false;
+		}
+
+		private void btnReturnBooks_Click(object sender, EventArgs e)
+		{
+			if(cmbTenNguoiTraSach.SelectedIndex == -1 || radioReturnSelected.Checked == false || radioReturnAll.Checked == false || gridChiTietTraSach.Rows.Count == 0)
+			{
+				MessageBox.Show("Vui lòng điền các thông tin hoặc chọn các lựa chọn cần thiết để tiến hành thao tác trả sách!", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+			if (radioReturnAll.Checked)
+			{
+				Dictionary<int, int> returnAll = new Dictionary<int, int>();
+				for (int i = 0; i < gridChiTietTraSach.Rows.Count; i++)
+				{
+					returnAll.Add(Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[6].Value), Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[5].Value));
+				}
+			}
+			else
+			{
+				Dictionary<int, int> returnSelected = new Dictionary<int, int>();
+				for (int i = 0; i < gridChiTietTraSach.Rows.Count; i++)
+				{
+					returnSelected.Add(Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[6].Value), Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[0].Value));
+				}
+			}
+		}
+
+        private void radioReturnAll_CheckedChanged(object sender, EventArgs e)
+        {
+			if (radioReturnAll.Checked)
+			{
+				gridChiTietTraSach.Enabled = false;
+				gridChiTietTraSach.ForeColor = SystemColors.ControlDark;
+				for (int i = 0; i < gridChiTietTraSach.Rows.Count; i++)
+				{
+					gridChiTietTraSach.Rows[i].Cells[0].Value = "";
+				}
+			}
+			else
+            {
+				gridChiTietTraSach.Enabled = true;
+				gridChiTietTraSach.ForeColor = Color.Empty;
+            }
+        }
+    }
 }
