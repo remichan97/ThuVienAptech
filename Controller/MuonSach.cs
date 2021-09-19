@@ -84,6 +84,8 @@ namespace ThuVien.Controller
             for (int i = 0; i < ChiTietSachMuon.Count; i++)
             {
                 SqlCommand cmd2 = new SqlCommand("MuonSach_CapNhatMuonSachChiTiet", db.GetConnection());
+                cmd2.Parameters.AddWithValue("@NgayMuon", ngayMuon);
+                cmd2.Parameters.AddWithValue("@NgayTra", ngayTra);
                 cmd2.Parameters.AddWithValue("@IDNguoiMuon", IDSinhVien);
                 cmd2.Parameters.AddWithValue("@IDSach", ChiTietSachMuon.ElementAt(i).Key);
                 cmd2.Parameters.AddWithValue("@SoLuong", ChiTietSachMuon.ElementAt(i).Value);

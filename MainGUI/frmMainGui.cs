@@ -40,6 +40,7 @@ namespace ThuVien.MainGUI
 			cmbTenNguoiMuon.DataSource = sinhVien;
 			cmbTenNguoiMuon.DisplayMember = "TenSinhVien";
 			cmbTenNguoiMuon.ValueMember = "MaSinhVien";
+			cmbTenNguoiMuon.SelectedIndex = -1;
 			DataTable muonSach = muon.GetDanhMucMuonSach(null);
 			gridThongTinMuonSach.DataSource = muonSach;
 		}
@@ -334,6 +335,7 @@ namespace ThuVien.MainGUI
 					gridThongTinMuonSach.ClearSelection();
 				}
 			}
+			if(String.IsNullOrEmpty(cmbTenNguoiMuon.Text)) cmbTenNguoiMuon.SelectedIndex = -1;
 		}
 
 		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -356,13 +358,13 @@ namespace ThuVien.MainGUI
 			}
 		}
 
-        private void cmbTenNguoiMuon_Leave(object sender, EventArgs e)
-        {
+		private void cmbTenNguoiMuon_Leave(object sender, EventArgs e)
+		{
 			string test = cmbTenNguoiMuon.Text;
 			if((cmbTenNguoiMuon.SelectedIndex = cmbTenNguoiMuon.FindStringExact(test)) == -1)
-            {
+			{
 				cmbTenNguoiMuon.Text = "";
-            }
-        }
-    }
+			}
+		}
+	}
 }

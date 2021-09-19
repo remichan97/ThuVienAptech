@@ -32,8 +32,15 @@ namespace ThuVien.MainGUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainGui));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sốLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tooltextTrangThai = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -87,14 +94,30 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiMuon = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnReturnBooks = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.radioReturnSelected = new System.Windows.Forms.RadioButton();
+            this.radioReturnAll = new System.Windows.Forms.RadioButton();
+            this.label16 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.gridChiTietTraSach = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSearchReturn = new System.Windows.Forms.Button();
+            this.dateNgayTraReturn = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dateNgayMuonReturn = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbTenNguoiTraSach = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnResetReturn = new System.Windows.Forms.Button();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -108,6 +131,9 @@ namespace ThuVien.MainGUI
             ((System.ComponentModel.ISupportInitialize)(this.gridChiTietSachMuon)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChiTietTraSach)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +154,7 @@ namespace ThuVien.MainGUI
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userListToolStripMenuItem,
             this.changePasswordToolStripMenuItem,
+            this.toolStripSeparator2,
             this.backupRestoreToolStripMenuItem,
             this.toolStripSeparator1,
             this.signOutToolStripMenuItem,
@@ -136,10 +163,56 @@ namespace ThuVien.MainGUI
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
+            // userListToolStripMenuItem
+            // 
+            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
+            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
+            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
+            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu...";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
+            // 
+            // backupRestoreToolStripMenuItem
+            // 
+            this.backupRestoreToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_database_administrator_48px;
+            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
+            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.backupRestoreToolStripMenuItem.Text = "Sao lưu/Phục hồi..";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
+            // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.signOutToolStripMenuItem.Text = "Đăng xuất";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.exitToolStripMenuItem.Text = "Thoát";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // sốLiệuToolStripMenuItem
             // 
@@ -148,6 +221,14 @@ namespace ThuVien.MainGUI
             this.sốLiệuToolStripMenuItem.Name = "sốLiệuToolStripMenuItem";
             this.sốLiệuToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.sốLiệuToolStripMenuItem.Text = "Số liệu";
+            // 
+            // studentListToolStripMenuItem
+            // 
+            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
+            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
+            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -683,6 +764,10 @@ namespace ThuVien.MainGUI
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage3.Controls.Add(this.btnResetReturn);
+            this.tabPage3.Controls.Add(this.btnReturnBooks);
+            this.tabPage3.Controls.Add(this.groupBox6);
+            this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.groupBox4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -690,75 +775,237 @@ namespace ThuVien.MainGUI
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
             // 
-            // userListToolStripMenuItem
+            // btnReturnBooks
             // 
-            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
-            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
-            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
+            this.btnReturnBooks.Location = new System.Drawing.Point(856, 534);
+            this.btnReturnBooks.Name = "btnReturnBooks";
+            this.btnReturnBooks.Size = new System.Drawing.Size(75, 23);
+            this.btnReturnBooks.TabIndex = 3;
+            this.btnReturnBooks.Text = "Trả sách";
+            this.btnReturnBooks.UseVisualStyleBackColor = true;
             // 
-            // changePasswordToolStripMenuItem
+            // groupBox6
             // 
-            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
-            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu...";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            this.groupBox6.Controls.Add(this.radioReturnSelected);
+            this.groupBox6.Controls.Add(this.radioReturnAll);
+            this.groupBox6.Controls.Add(this.label16);
+            this.groupBox6.Location = new System.Drawing.Point(4, 390);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(927, 122);
+            this.groupBox6.TabIndex = 2;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Tùy chọn trả sách";
             // 
-            // backupRestoreToolStripMenuItem
+            // radioReturnSelected
             // 
-            this.backupRestoreToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_database_administrator_48px;
-            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
-            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.backupRestoreToolStripMenuItem.Text = "Sao lưu/Phục hồi..";
+            this.radioReturnSelected.AutoSize = true;
+            this.radioReturnSelected.Location = new System.Drawing.Point(8, 56);
+            this.radioReturnSelected.Name = "radioReturnSelected";
+            this.radioReturnSelected.Size = new System.Drawing.Size(161, 17);
+            this.radioReturnSelected.TabIndex = 5;
+            this.radioReturnSelected.TabStop = true;
+            this.radioReturnSelected.Text = "Trả số lượng sách đã nhập";
+            this.radioReturnSelected.UseVisualStyleBackColor = true;
             // 
-            // signOutToolStripMenuItem
+            // radioReturnAll
             // 
-            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
-            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.signOutToolStripMenuItem.Text = "Đăng xuất";
-            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            this.radioReturnAll.AutoSize = true;
+            this.radioReturnAll.Location = new System.Drawing.Point(8, 88);
+            this.radioReturnAll.Name = "radioReturnAll";
+            this.radioReturnAll.Size = new System.Drawing.Size(173, 17);
+            this.radioReturnAll.TabIndex = 4;
+            this.radioReturnAll.TabStop = true;
+            this.radioReturnAll.Text = "Trả toàn bộ sách đang mượn";
+            this.radioReturnAll.UseVisualStyleBackColor = true;
             // 
-            // exitToolStripMenuItem
+            // label16
             // 
-            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.exitToolStripMenuItem.Text = "Thoát";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 18);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(904, 26);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Sau khi đã điền các thông tin phía trên, chọn ô kiểm Trả số lượng đã nhập nếu đã " +
+    "nhập số lượng trả của các đầu sách, hoặc Trả toàn bộ và nhấn nút Trả sách để hoà" +
+    "n tất việc \r\ntrả sách";
             // 
-            // studentListToolStripMenuItem
+            // groupBox5
             // 
-            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
-            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
-            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
+            this.groupBox5.Controls.Add(this.gridChiTietTraSach);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Location = new System.Drawing.Point(3, 129);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(935, 255);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Đầu sách đã mượn";
+            // 
+            // gridChiTietTraSach
+            // 
+            this.gridChiTietTraSach.AllowUserToAddRows = false;
+            this.gridChiTietTraSach.AllowUserToDeleteRows = false;
+            this.gridChiTietTraSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridChiTietTraSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column16,
+            this.Column17,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15});
+            this.gridChiTietTraSach.Location = new System.Drawing.Point(9, 50);
+            this.gridChiTietTraSach.Name = "gridChiTietTraSach";
+            this.gridChiTietTraSach.Size = new System.Drawing.Size(919, 199);
+            this.gridChiTietTraSach.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(605, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Sau đó nhập số lượng sách cần trả tại bảng dưới đây, hoặc bỏ qua nếu sinh viên sẽ" +
+    " trả toàn bộ số sách đang mượn:";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnSearchReturn);
+            this.groupBox4.Controls.Add(this.dateNgayTraReturn);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.dateNgayMuonReturn);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.cmbTenNguoiTraSach);
+            this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(941, 143);
+            this.groupBox4.Size = new System.Drawing.Size(935, 120);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Tìm kiếm thông tin mượn sách";
+            this.groupBox4.Text = "Thông tin người mượn";
+            // 
+            // btnSearchReturn
+            // 
+            this.btnSearchReturn.Location = new System.Drawing.Point(853, 77);
+            this.btnSearchReturn.Name = "btnSearchReturn";
+            this.btnSearchReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchReturn.TabIndex = 12;
+            this.btnSearchReturn.Text = "Tìm kiếm";
+            this.btnSearchReturn.UseVisualStyleBackColor = true;
+            // 
+            // dateNgayTraReturn
+            // 
+            this.dateNgayTraReturn.CustomFormat = "dd/MM/yyyy";
+            this.dateNgayTraReturn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateNgayTraReturn.Location = new System.Drawing.Point(727, 49);
+            this.dateNgayTraReturn.Name = "dateNgayTraReturn";
+            this.dateNgayTraReturn.Size = new System.Drawing.Size(201, 22);
+            this.dateNgayTraReturn.TabIndex = 11;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(648, 52);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Ngày hẹn trả";
+            // 
+            // dateNgayMuonReturn
+            // 
+            this.dateNgayMuonReturn.CustomFormat = "dd/MM/yyyy";
+            this.dateNgayMuonReturn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateNgayMuonReturn.Location = new System.Drawing.Point(426, 48);
+            this.dateNgayMuonReturn.Name = "dateNgayMuonReturn";
+            this.dateNgayMuonReturn.Size = new System.Drawing.Size(216, 22);
+            this.dateNgayMuonReturn.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(354, 52);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 13);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Ngày mượn";
+            // 
+            // cmbTenNguoiTraSach
+            // 
+            this.cmbTenNguoiTraSach.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbTenNguoiTraSach.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbTenNguoiTraSach.FormattingEnabled = true;
+            this.cmbTenNguoiTraSach.Location = new System.Drawing.Point(104, 49);
+            this.cmbTenNguoiTraSach.Name = "cmbTenNguoiTraSach";
+            this.cmbTenNguoiTraSach.Size = new System.Drawing.Size(244, 21);
+            this.cmbTenNguoiTraSach.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 52);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(92, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Tên người mượn";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 22);
+            this.label11.Location = new System.Drawing.Point(6, 22);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(549, 13);
+            this.label11.Size = new System.Drawing.Size(627, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Nhập các thông tin về người mượn tại các ô nhập bên dưới để tiến hành tìm kiếm th" +
-    "ông tin người mượn:";
+            this.label11.Text = "Nhập các thông tin dưới đây về sinh viên và nhấn nút Tìm Kiếm để tìm kiếm thông t" +
+    "in về các đầu sách sinh viên đã mượn:";
+            // 
+            // btnResetReturn
+            // 
+            this.btnResetReturn.Location = new System.Drawing.Point(775, 534);
+            this.btnResetReturn.Name = "btnResetReturn";
+            this.btnResetReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnResetReturn.TabIndex = 4;
+            this.btnResetReturn.Text = "Điền lại";
+            this.btnResetReturn.UseVisualStyleBackColor = true;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Ngày mượn";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 125;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Ngày trả";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Tên người mượn";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 200;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Tên sách mượn";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 200;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Số lượng mượn";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Số lượng trả";
+            this.Column15.Name = "Column15";
             // 
             // frmMainGui
             // 
@@ -798,6 +1045,11 @@ namespace ThuVien.MainGUI
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChiTietTraSach)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -870,7 +1122,30 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbSachMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtBorrowQuantity;
         private System.Windows.Forms.ToolStripMenuItem backupRestoreToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView gridChiTietTraSach;
+        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnSearchReturn;
+        private System.Windows.Forms.DateTimePicker dateNgayTraReturn;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dateNgayMuonReturn;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbTenNguoiTraSach;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnReturnBooks;
+        private System.Windows.Forms.RadioButton radioReturnSelected;
+        private System.Windows.Forms.RadioButton radioReturnAll;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Button btnResetReturn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
     }
 }
