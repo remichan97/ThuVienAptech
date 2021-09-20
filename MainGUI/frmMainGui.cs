@@ -401,7 +401,7 @@ namespace ThuVien.MainGUI
 			}
 			catch (SqlException ex)
 			{
-				 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 
@@ -414,11 +414,12 @@ namespace ThuVien.MainGUI
 			gridChiTietTraSach.DataSource = empty;
 			radioReturnAll.Checked = false;
 			radioReturnSelected.Checked = false;
+			btnReturnBooks.Enabled = false;
 		}
 
 		private void btnReturnBooks_Click(object sender, EventArgs e)
 		{
-			if(cmbTenNguoiTraSach.SelectedIndex == -1 || radioReturnSelected.Checked == false || radioReturnAll.Checked == false || gridChiTietTraSach.Rows.Count == 0)
+			if (cmbTenNguoiTraSach.SelectedIndex == -1)
 			{
 				MessageBox.Show("Vui lòng điền các thông tin hoặc chọn các lựa chọn cần thiết để tiến hành thao tác trả sách!", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
@@ -430,19 +431,51 @@ namespace ThuVien.MainGUI
 				{
 					returnAll.Add(Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[6].Value), Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[5].Value));
 				}
+
+				DialogResult dialog = new DialogResult();
+
+				string message = "Bạn sắp sửa thực hiện thao tác trả sách của sinh viên." + Environment.NewLine + "Nếu sinh viên làm mất sách, vui lòng không điền số lượng trả ở các đầu sách bị mất tại đây. Thay vào đó, bạn vui lòng sử dụng mẫu báo mất sách của phần mềm để thực hiện điều này." + Environment.NewLine + "Bạn có muốn tiếp tục thực hiện việc trả sách?";
+
+				dialog = MessageBox.Show(message, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+				if (dialog == DialogResult.Yes)
+				{
+					tra.traSach(cmbTenNguoiTraSach.SelectedValue.ToString(), dateNgayMuonReturn.Value.ToShortDateString(), dateNgayTraReturn.Value.ToShortDateString(), returnAll, 1);
+					setStatus("Toàn bộ số sách đã mượn tính đến khoảng thời gian được chọn đã được trả");
+					loadData();
+					btnResetReturn_Click(null, null);
+				}
 			}
 			else
 			{
 				Dictionary<int, int> returnSelected = new Dictionary<int, int>();
 				for (int i = 0; i < gridChiTietTraSach.Rows.Count; i++)
 				{
-					returnSelected.Add(Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[6].Value), Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[0].Value));
+					if (gridChiTietTraSach.Rows[i].Cells[0].Value != null)
+					{
+						returnSelected.Add(Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[6].Value), Convert.ToInt32(gridChiTietTraSach.Rows[i].Cells[0].Value));
+					}
+				}
+
+				DialogResult dialog = new DialogResult();
+
+				string message = "Bạn sắp sửa thực hiện thao tác trả sách của sinh viên." + Environment.NewLine + "Nếu sinh viên làm mất sách, vui lòng không điền số lượng trả ở các đầu sách bị mất tại đây. Thay vào đó, bạn vui lòng sử dụng mẫu báo mất sách của phần mềm để thực hiện điều này." + Environment.NewLine + "Bạn có muốn tiếp tục thực hiện việc trả sách?";
+
+				dialog = MessageBox.Show(message, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (dialog == DialogResult.Yes)
+				{
+					tra.traSach(cmbTenNguoiTraSach.SelectedValue.ToString(), dateNgayMuonReturn.Value.ToShortDateString(), dateNgayTraReturn.Value.ToShortDateString(), returnSelected, 2);
+					setStatus("Số sách đã mượn tính đến khoảng thời gian được chọn đã được trả");
+					loadData();
+					btnResetReturn_Click(null, null);
 				}
 			}
 		}
 
-        private void radioReturnAll_CheckedChanged(object sender, EventArgs e)
-        {
+		private void radioReturnAll_CheckedChanged(object sender, EventArgs e)
+		{
+			btnReturnBooks.Enabled = true;
+
 			if (radioReturnAll.Checked)
 			{
 				gridChiTietTraSach.Enabled = false;
@@ -453,10 +486,15 @@ namespace ThuVien.MainGUI
 				}
 			}
 			else
-            {
+			{
 				gridChiTietTraSach.Enabled = true;
 				gridChiTietTraSach.ForeColor = Color.Empty;
-            }
-        }
-    }
+			}
+		}
+
+        private void radioReturnSelected_CheckedChanged(object sender, EventArgs e)
+        {
+			btnReturnBooks.Enabled = true;
+		}
+	}
 }

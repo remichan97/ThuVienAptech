@@ -37,7 +37,20 @@ namespace ThuVien.Controller
 
 		public void traSach(string TenNguoiMuon, string NgayMuon, string NgayTra, Dictionary<int, int> borrow, int option) 
 		{
-			
+			for (int i = 0; i < borrow.Count; i++)
+			{
+				SqlCommand cmd = new SqlCommand("TraSach", db.GetConnection());
+
+				cmd.Parameters.AddWithValue("@MaSinhVien", TenNguoiMuon);
+				cmd.Parameters.AddWithValue("@NgayMuon", NgayMuon);
+				cmd.Parameters.AddWithValue("@NgayTra", NgayTra);
+				cmd.Parameters.AddWithValue("@MaSach", borrow.ElementAt(i).Key);
+				cmd.Parameters.AddWithValue("@SoLuong", borrow.ElementAt(i).Value);
+				cmd.Parameters.AddWithValue("@option", option);
+
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.ExecuteNonQuery();
+			}
 		}
 	}
 }

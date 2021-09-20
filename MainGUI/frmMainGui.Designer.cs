@@ -94,6 +94,7 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiMuon = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnResetReturn = new System.Windows.Forms.Button();
             this.btnReturnBooks = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.radioReturnSelected = new System.Windows.Forms.RadioButton();
@@ -101,6 +102,13 @@ namespace ThuVien.MainGUI
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.gridChiTietTraSach = new System.Windows.Forms.DataGridView();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSoLuongTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSearchReturn = new System.Windows.Forms.Button();
@@ -111,14 +119,6 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiTraSach = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnResetReturn = new System.Windows.Forms.Button();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSoLuongTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -776,8 +776,19 @@ namespace ThuVien.MainGUI
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
             // 
+            // btnResetReturn
+            // 
+            this.btnResetReturn.Location = new System.Drawing.Point(775, 534);
+            this.btnResetReturn.Name = "btnResetReturn";
+            this.btnResetReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnResetReturn.TabIndex = 4;
+            this.btnResetReturn.Text = "Điền lại";
+            this.btnResetReturn.UseVisualStyleBackColor = true;
+            this.btnResetReturn.Click += new System.EventHandler(this.btnResetReturn_Click);
+            // 
             // btnReturnBooks
             // 
+            this.btnReturnBooks.Enabled = false;
             this.btnReturnBooks.Location = new System.Drawing.Point(856, 534);
             this.btnReturnBooks.Name = "btnReturnBooks";
             this.btnReturnBooks.Size = new System.Drawing.Size(75, 23);
@@ -808,16 +819,17 @@ namespace ThuVien.MainGUI
             this.radioReturnSelected.TabStop = true;
             this.radioReturnSelected.Text = "Trả số lượng sách đã nhập ở khoảng thời gian đã chọn";
             this.radioReturnSelected.UseVisualStyleBackColor = true;
+            this.radioReturnSelected.CheckedChanged += new System.EventHandler(this.radioReturnSelected_CheckedChanged);
             // 
             // radioReturnAll
             // 
             this.radioReturnAll.AutoSize = true;
             this.radioReturnAll.Location = new System.Drawing.Point(8, 88);
             this.radioReturnAll.Name = "radioReturnAll";
-            this.radioReturnAll.Size = new System.Drawing.Size(321, 17);
+            this.radioReturnAll.Size = new System.Drawing.Size(336, 17);
             this.radioReturnAll.TabIndex = 4;
             this.radioReturnAll.TabStop = true;
-            this.radioReturnAll.Text = "Trả toàn bộ sách đang mượn ở khoảng thời gian đã chọn";
+            this.radioReturnAll.Text = "Trả toàn bộ số sách đang mượn ở khoảng thời gian đã chọn";
             this.radioReturnAll.UseVisualStyleBackColor = true;
             this.radioReturnAll.CheckedChanged += new System.EventHandler(this.radioReturnAll_CheckedChanged);
             // 
@@ -860,6 +872,59 @@ namespace ThuVien.MainGUI
             this.gridChiTietTraSach.Name = "gridChiTietTraSach";
             this.gridChiTietTraSach.Size = new System.Drawing.Size(919, 199);
             this.gridChiTietTraSach.TabIndex = 1;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "NgayMuon";
+            this.Column16.HeaderText = "Ngày mượn";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.Width = 125;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "NgayTra";
+            this.Column17.HeaderText = "Ngày trả";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.Width = 125;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "TenSinhVien";
+            this.Column12.HeaderText = "Tên người mượn";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 200;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "TenSach";
+            this.Column13.HeaderText = "Tên sách mượn";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 200;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "SoLuongMuon";
+            this.Column14.HeaderText = "Số lượng mượn";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 125;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "IDSach";
+            this.Column15.HeaderText = "IDSachMuon";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
+            // 
+            // txtSoLuongTra
+            // 
+            this.txtSoLuongTra.HeaderText = "Số lượng trả";
+            this.txtSoLuongTra.Name = "txtSoLuongTra";
             // 
             // label15
             // 
@@ -963,69 +1028,6 @@ namespace ThuVien.MainGUI
             this.label11.TabIndex = 0;
             this.label11.Text = "Nhập hoặc chọn Tên sinh viên và khoảng thời gian mượn/ trả và nhấn nút Tìm Kiếm đ" +
     "ể tìm kiếm thông tin về các đầu sách họ đã mượn :";
-            // 
-            // btnResetReturn
-            // 
-            this.btnResetReturn.Location = new System.Drawing.Point(775, 534);
-            this.btnResetReturn.Name = "btnResetReturn";
-            this.btnResetReturn.Size = new System.Drawing.Size(75, 23);
-            this.btnResetReturn.TabIndex = 4;
-            this.btnResetReturn.Text = "Điền lại";
-            this.btnResetReturn.UseVisualStyleBackColor = true;
-            this.btnResetReturn.Click += new System.EventHandler(this.btnResetReturn_Click);
-            // 
-            // Column16
-            // 
-            this.Column16.DataPropertyName = "NgayMuon";
-            this.Column16.HeaderText = "Ngày mượn";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.Width = 125;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "NgayTra";
-            this.Column17.HeaderText = "Ngày trả";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.Width = 125;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "TenSinhVien";
-            this.Column12.HeaderText = "Tên người mượn";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 200;
-            // 
-            // Column13
-            // 
-            this.Column13.DataPropertyName = "TenSach";
-            this.Column13.HeaderText = "Tên sách mượn";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 200;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "SoLuongMuon";
-            this.Column14.HeaderText = "Số lượng mượn";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 125;
-            // 
-            // Column15
-            // 
-            this.Column15.DataPropertyName = "IDSach";
-            this.Column15.HeaderText = "IDSachMuon";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
-            // 
-            // txtSoLuongTra
-            // 
-            this.txtSoLuongTra.HeaderText = "Số lượng trả";
-            this.txtSoLuongTra.Name = "txtSoLuongTra";
             // 
             // frmMainGui
             // 
