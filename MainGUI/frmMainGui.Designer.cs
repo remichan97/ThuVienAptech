@@ -1061,7 +1061,7 @@ namespace ThuVien.MainGUI
             this.reportLostBookToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_bank_card_missing_48px;
             this.reportLostBookToolStripMenuItem.Name = "reportLostBookToolStripMenuItem";
             this.reportLostBookToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.reportLostBookToolStripMenuItem.Text = "Báo mất sách...";
+            this.reportLostBookToolStripMenuItem.Text = "Báo mất sách";
             this.reportLostBookToolStripMenuItem.Click += new System.EventHandler(this.reportLostBookToolStripMenuItem_Click);
             // 
             // frmMainGui

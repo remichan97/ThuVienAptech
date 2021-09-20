@@ -52,5 +52,22 @@ namespace ThuVien.Controller
 				cmd.ExecuteNonQuery();
 			}
 		}
+
+		public void baoMatSach(Dictionary<int, int> lostBook, string NgayMat, string MaSinhVien, string NgayMuon, string NgayTra)
+		{
+			for (int i = 0; i < lostBook.Count; i++)
+			{
+				SqlCommand cmd = new SqlCommand("TraSach_BaoMatSach", db.GetConnection());
+
+				cmd.Parameters.AddWithValue("@NgayMat", NgayMat);
+				cmd.Parameters.AddWithValue("@MaSinhVien", MaSinhVien);
+				cmd.Parameters.AddWithValue("@IDSachMat", lostBook.ElementAt(i).Key);
+				cmd.Parameters.AddWithValue("@SoLuongMat", lostBook.ElementAt(i).Value);
+				cmd.Parameters.AddWithValue("@NgayMuon", NgayMuon);
+				cmd.Parameters.AddWithValue("@NgayTra", NgayTra);
+
+				cmd.ExecuteNonQuery();
+			}
+		}
 	}
 }
