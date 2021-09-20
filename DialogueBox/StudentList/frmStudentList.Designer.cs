@@ -38,10 +38,6 @@ namespace ThuVien.DialogueBox
             this.btnDeleteStudent = new System.Windows.Forms.ToolStripButton();
             this.btnResetStudent = new System.Windows.Forms.ToolStripButton();
             this.gridDanhSachSinhVien = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -51,6 +47,10 @@ namespace ThuVien.DialogueBox
             this.txtTenSinhVien = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaSinhVien = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridDanhSachSinhVien)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,7 +76,6 @@ namespace ThuVien.DialogueBox
             // 
             // txtSearchStudent
             // 
-            this.txtSearchStudent.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearchStudent.Name = "txtSearchStudent";
             this.txtSearchStudent.Size = new System.Drawing.Size(250, 25);
             // 
@@ -149,32 +148,6 @@ namespace ThuVien.DialogueBox
             this.gridDanhSachSinhVien.Size = new System.Drawing.Size(745, 318);
             this.gridDanhSachSinhVien.TabIndex = 1;
             this.gridDanhSachSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDanhSachSinhVien_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã sinh viên";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên sinh viên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 250;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Địa chỉ";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 250;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Giới tính";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -260,6 +233,36 @@ namespace ThuVien.DialogueBox
             this.txtMaSinhVien.Size = new System.Drawing.Size(143, 22);
             this.txtMaSinhVien.TabIndex = 4;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaSinhVien";
+            this.Column1.HeaderText = "Mã sinh viên";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TenSinhVien";
+            this.Column2.HeaderText = "Tên sinh viên";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 250;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "DiaChi";
+            this.Column3.HeaderText = "Địa chỉ";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 250;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "GioiTinh";
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // frmStudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,10 +300,6 @@ namespace ThuVien.DialogueBox
         private System.Windows.Forms.ToolStripButton btnEditStudent;
         private System.Windows.Forms.ToolStripButton btnDeleteStudent;
         private System.Windows.Forms.DataGridView gridDanhSachSinhVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDiaChi;
@@ -311,5 +310,9 @@ namespace ThuVien.DialogueBox
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaSinhVien;
         private System.Windows.Forms.ToolStripButton btnResetStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

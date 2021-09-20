@@ -57,6 +57,12 @@
     <Compile Include="Controller\Database.cs" />
     <Compile Include="Controller\SinhVien.cs" />
     <Compile Include="Controller\TraSach.cs" />
+    <Compile Include="DialogueBox\LostBook\frmLostBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogueBox\LostBook\frmLostBook.Designer.cs">
+      <DependentUpon>frmLostBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogueBox\StudentList\frmStudentList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DialogueBox\LostBook\frmLostBook.resx">
+      <DependentUpon>frmLostBook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogueBox\StudentList\frmStudentList.resx">
       <DependentUpon>frmStudentList.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +175,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\icons8_reset_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\icons8_bank_card_missing_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

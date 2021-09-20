@@ -496,5 +496,17 @@ namespace ThuVien.MainGUI
         {
 			btnReturnBooks.Enabled = true;
 		}
-	}
+
+        private void reportLostBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			DialogueBox.LostBook.frmLostBook lost = new DialogueBox.LostBook.frmLostBook();
+			lost.ShowDialog();
+        }
+
+        private void linkLostBook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+			DialogueBox.LostBook.frmLostBook lost = new DialogueBox.LostBook.frmLostBook();
+			lost.ShowDialog();
+        }
+    }
 }
