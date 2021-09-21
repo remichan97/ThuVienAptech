@@ -32,12 +32,12 @@ namespace ThuVien.DialogueBox.BackupRestore
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wizBackup));
             this.wizardControl1 = new AeroWizard.WizardControl();
             this.landingPage = new AeroWizard.WizardPage();
-            this.backupPage = new AeroWizard.WizardPage();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFolder = new System.Windows.Forms.TextBox();
             this.btnBrowseFolder = new System.Windows.Forms.Button();
+            this.txtFolder = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.backupPage = new AeroWizard.WizardPage();
             this.label2 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.landingPage.SuspendLayout();
             this.backupPage.SuspendLayout();
@@ -68,27 +68,21 @@ namespace ThuVien.DialogueBox.BackupRestore
             this.landingPage.Controls.Add(this.txtFolder);
             this.landingPage.Controls.Add(this.label1);
             this.landingPage.Name = "landingPage";
+            this.landingPage.NextPage = this.backupPage;
             this.landingPage.Size = new System.Drawing.Size(572, 254);
             this.landingPage.TabIndex = 0;
             this.landingPage.Text = "Vui lòng chọn đường dẫn sao lưu dữ liệu";
             this.landingPage.Commit += new System.EventHandler<AeroWizard.WizardPageConfirmEventArgs>(this.landingPage_Commit);
             // 
-            // backupPage
+            // btnBrowseFolder
             // 
-            this.backupPage.Controls.Add(this.label2);
-            this.backupPage.Name = "backupPage";
-            this.backupPage.Size = new System.Drawing.Size(572, 254);
-            this.backupPage.TabIndex = 1;
-            this.backupPage.Text = "Sẵn sàng sao lưu dữ liệu";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(382, 105);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.btnBrowseFolder.Location = new System.Drawing.Point(467, 158);
+            this.btnBrowseFolder.Name = "btnBrowseFolder";
+            this.btnBrowseFolder.Size = new System.Drawing.Size(102, 23);
+            this.btnBrowseFolder.TabIndex = 2;
+            this.btnBrowseFolder.Text = "Chọn thư mục";
+            this.btnBrowseFolder.UseVisualStyleBackColor = true;
+            this.btnBrowseFolder.Click += new System.EventHandler(this.btnBrowseFolder_Click);
             // 
             // txtFolder
             // 
@@ -99,23 +93,32 @@ namespace ThuVien.DialogueBox.BackupRestore
             this.txtFolder.Size = new System.Drawing.Size(446, 23);
             this.txtFolder.TabIndex = 1;
             // 
-            // btnBrowseFolder
+            // label1
             // 
-            this.btnBrowseFolder.Location = new System.Drawing.Point(467, 158);
-            this.btnBrowseFolder.Name = "btnBrowseFolder";
-            this.btnBrowseFolder.Size = new System.Drawing.Size(102, 23);
-            this.btnBrowseFolder.TabIndex = 2;
-            this.btnBrowseFolder.Text = "Chọn thư mục";
-            this.btnBrowseFolder.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(382, 105);
+            this.label1.TabIndex = 0;
+            this.label1.Text = resources.GetString("label1.Text");
+            // 
+            // backupPage
+            // 
+            this.backupPage.Controls.Add(this.label2);
+            this.backupPage.Name = "backupPage";
+            this.backupPage.Size = new System.Drawing.Size(572, 254);
+            this.backupPage.TabIndex = 1;
+            this.backupPage.Text = "Sẵn sàng sao lưu dữ liệu";
+            this.backupPage.Commit += new System.EventHandler<AeroWizard.WizardPageConfirmEventArgs>(this.backupPage_Commit);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 15);
+            this.label2.Size = new System.Drawing.Size(250, 15);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Nhấn nút kết thúc để bắt đầu quá trình sao lưu";
+            this.label2.Text = "Nhấn nút Sao lưu để bắt đầu quá trình sao lưu";
             // 
             // wizBackup
             // 
@@ -130,6 +133,7 @@ namespace ThuVien.DialogueBox.BackupRestore
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).EndInit();
             this.landingPage.ResumeLayout(false);
             this.landingPage.PerformLayout();

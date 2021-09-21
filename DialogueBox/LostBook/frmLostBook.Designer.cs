@@ -229,7 +229,7 @@ namespace ThuVien.DialogueBox.LostBook
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Mất?";
+            this.Column4.HeaderText = "Sách bị mất?";
             this.Column4.Name = "Column4";
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;

@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Để đảm bảo quá trình sao lưu diễn ra thuận lợi, bạn nên:
+
+- Lưu tập tin sao lưu ở ổ đĩa khác ổ chứa hệ điều hành (ví dụ như ổ D...)
+- Không nên chọn thư mục có chứa ký tự tiếng Việt
+- Đường dẫn lưu file không nên để quá dài
+
+Nhấn nút duyệt thư mục bên dưới để chọn nơi lưu tập tin sao lưu</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="wizardControl1.TitleIcon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -145,13 +154,4 @@
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Để đảm bảo quá trình sao lưu diễn ra thuận lợi, bạn nên:
-
-- Lưu tập tin sao lưu ở ổ đĩa khác ổ chứa hệ điều hành (ví dụ như ổ D...)
-- Không nên chọn thư mục có chứa ký tự tiếng Việt
-- Đường dẫn lưu file không nên để quá dài
-
-Nhấn nút duyệt thư mục bên dưới để chọn nơi lưu tập tin sao lưu</value>
-  </data>
 </root>

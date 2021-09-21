@@ -32,9 +32,17 @@ namespace ThuVien.MainGUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainGui));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.backupDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sốLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportLostBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tooltextTrangThai = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -88,6 +96,8 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiMuon = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.linkLostBook = new System.Windows.Forms.LinkLabel();
+            this.label17 = new System.Windows.Forms.Label();
             this.btnResetReturn = new System.Windows.Forms.Button();
             this.btnReturnBooks = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -113,15 +123,6 @@ namespace ThuVien.MainGUI
             this.cmbTenNguoiTraSach = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.linkLostBook = new System.Windows.Forms.LinkLabel();
-            this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupRestoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.studentListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportLostBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -159,7 +160,8 @@ namespace ThuVien.MainGUI
             this.userListToolStripMenuItem,
             this.changePasswordToolStripMenuItem,
             this.toolStripSeparator2,
-            this.backupRestoreToolStripMenuItem,
+            this.backupDataToolStripMenuItem,
+            this.restoreDataToolStripMenuItem,
             this.toolStripSeparator1,
             this.signOutToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -167,15 +169,65 @@ namespace ThuVien.MainGUI
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
+            // userListToolStripMenuItem
+            // 
+            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
+            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
+            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
+            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
+            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu...";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
             // 
+            // backupDataToolStripMenuItem
+            // 
+            this.backupDataToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_save_48px;
+            this.backupDataToolStripMenuItem.Name = "backupDataToolStripMenuItem";
+            this.backupDataToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.backupDataToolStripMenuItem.Text = "Sao lưu dữ liệu";
+            this.backupDataToolStripMenuItem.Click += new System.EventHandler(this.backupRestoreToolStripMenuItem_Click);
+            // 
+            // restoreDataToolStripMenuItem
+            // 
+            this.restoreDataToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_restore_page_48px;
+            this.restoreDataToolStripMenuItem.Name = "restoreDataToolStripMenuItem";
+            this.restoreDataToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.restoreDataToolStripMenuItem.Text = "Phục hồi dữ liệu";
+            this.restoreDataToolStripMenuItem.Click += new System.EventHandler(this.restoreDataToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
+            // 
+            // signOutToolStripMenuItem
+            // 
+            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
+            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.signOutToolStripMenuItem.Text = "Đăng xuất";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.exitToolStripMenuItem.Text = "Thoát";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // sốLiệuToolStripMenuItem
             // 
@@ -185,6 +237,22 @@ namespace ThuVien.MainGUI
             this.sốLiệuToolStripMenuItem.Name = "sốLiệuToolStripMenuItem";
             this.sốLiệuToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.sốLiệuToolStripMenuItem.Text = "Số liệu";
+            // 
+            // studentListToolStripMenuItem
+            // 
+            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
+            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
+            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
+            // 
+            // reportLostBookToolStripMenuItem
+            // 
+            this.reportLostBookToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_bank_card_missing_48px;
+            this.reportLostBookToolStripMenuItem.Name = "reportLostBookToolStripMenuItem";
+            this.reportLostBookToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.reportLostBookToolStripMenuItem.Text = "Báo mất sách";
+            this.reportLostBookToolStripMenuItem.Click += new System.EventHandler(this.reportLostBookToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -733,6 +801,27 @@ namespace ThuVien.MainGUI
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Trả sách";
             // 
+            // linkLostBook
+            // 
+            this.linkLostBook.AutoSize = true;
+            this.linkLostBook.Location = new System.Drawing.Point(441, 534);
+            this.linkLostBook.Name = "linkLostBook";
+            this.linkLostBook.Size = new System.Drawing.Size(41, 13);
+            this.linkLostBook.TabIndex = 6;
+            this.linkLostBook.TabStop = true;
+            this.linkLostBook.Text = "tại đây";
+            this.linkLostBook.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.linkLostBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLostBook_LinkClicked);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(12, 534);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(433, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Trong trường hợp sinh viên làm mất sách, vui lòng sử dụng mẫu khai báo mất sách";
+            // 
             // btnResetReturn
             // 
             this.btnResetReturn.Location = new System.Drawing.Point(775, 534);
@@ -986,84 +1075,6 @@ namespace ThuVien.MainGUI
             this.label11.Text = "Nhập hoặc chọn Tên sinh viên và khoảng thời gian mượn/ trả và nhấn nút Tìm Kiếm đ" +
     "ể tìm kiếm thông tin về các đầu sách họ đã mượn :";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 534);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(433, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Trong trường hợp sinh viên làm mất sách, vui lòng sử dụng mẫu khai báo mất sách";
-            // 
-            // linkLostBook
-            // 
-            this.linkLostBook.AutoSize = true;
-            this.linkLostBook.Location = new System.Drawing.Point(441, 534);
-            this.linkLostBook.Name = "linkLostBook";
-            this.linkLostBook.Size = new System.Drawing.Size(41, 13);
-            this.linkLostBook.TabIndex = 6;
-            this.linkLostBook.TabStop = true;
-            this.linkLostBook.Text = "tại đây";
-            this.linkLostBook.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.linkLostBook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLostBook_LinkClicked);
-            // 
-            // userListToolStripMenuItem
-            // 
-            this.userListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_administrator_male_48px;
-            this.userListToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.userListToolStripMenuItem.Name = "userListToolStripMenuItem";
-            this.userListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.userListToolStripMenuItem.Text = "Danh sách người dùng";
-            this.userListToolStripMenuItem.Click += new System.EventHandler(this.userListToolStripMenuItem_Click);
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_key_2_48px;
-            this.changePasswordToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu...";
-            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
-            // backupRestoreToolStripMenuItem
-            // 
-            this.backupRestoreToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_database_administrator_48px;
-            this.backupRestoreToolStripMenuItem.Name = "backupRestoreToolStripMenuItem";
-            this.backupRestoreToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.backupRestoreToolStripMenuItem.Text = "Sao lưu/Phục hồi..";
-            // 
-            // signOutToolStripMenuItem
-            // 
-            this.signOutToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_sign_out_48px;
-            this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.signOutToolStripMenuItem.Text = "Đăng xuất";
-            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_exit_sign_48px;
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.exitToolStripMenuItem.Text = "Thoát";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // studentListToolStripMenuItem
-            // 
-            this.studentListToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_details_48px;
-            this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.studentListToolStripMenuItem.Text = "Danh sách Sinh Viên";
-            this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
-            // 
-            // reportLostBookToolStripMenuItem
-            // 
-            this.reportLostBookToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_bank_card_missing_48px;
-            this.reportLostBookToolStripMenuItem.Name = "reportLostBookToolStripMenuItem";
-            this.reportLostBookToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.reportLostBookToolStripMenuItem.Text = "Báo mất sách";
-            this.reportLostBookToolStripMenuItem.Click += new System.EventHandler(this.reportLostBookToolStripMenuItem_Click);
-            // 
             // frmMainGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1179,7 +1190,7 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbSachMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtBorrowQuantity;
-        private System.Windows.Forms.ToolStripMenuItem backupRestoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backupDataToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1209,5 +1220,6 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ToolStripMenuItem reportLostBookToolStripMenuItem;
         private System.Windows.Forms.LinkLabel linkLostBook;
+        private System.Windows.Forms.ToolStripMenuItem restoreDataToolStripMenuItem;
     }
 }

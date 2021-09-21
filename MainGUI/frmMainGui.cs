@@ -508,5 +508,16 @@ namespace ThuVien.MainGUI
 			DialogueBox.LostBook.frmLostBook lost = new DialogueBox.LostBook.frmLostBook();
 			lost.ShowDialog();
         }
+
+        private void backupRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			DialogueBox.BackupRestore.wizBackup wiz = new DialogueBox.BackupRestore.wizBackup();
+			wiz.ShowDialog();
+        }
+
+        private void restoreDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
