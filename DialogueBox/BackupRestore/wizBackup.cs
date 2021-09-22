@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AeroWizard;
+using ThuVien.Controller;
 
 namespace ThuVien.DialogueBox.BackupRestore
 {
     public partial class wizBackup : Form
     {
+        SaoLuu bk = new SaoLuu();
         public wizBackup()
         {
             InitializeComponent();
@@ -38,7 +40,9 @@ namespace ThuVien.DialogueBox.BackupRestore
 
         private void backupPage_Commit(object sender, WizardPageConfirmEventArgs e)
         {
-
+            bk.saoLuuDuLieu(txtFolder.Text);
+            MessageBox.Show("Sao lưu dữ liệu thành công. vui lòng tìm tập tin sao lưu ở đường dẫn sau:" + Environment.NewLine + txtFolder.Text + "\\ThuVien.bak", "Sao lưu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Hide();
         }
     }
 }

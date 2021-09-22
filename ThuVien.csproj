@@ -56,9 +56,11 @@
   <ItemGroup>
     <Compile Include="Controller\MuonSach.cs" />
     <Compile Include="Controller\NguoiDung.cs" />
+    <Compile Include="Controller\PhucHoi.cs" />
     <Compile Include="Controller\Sach.cs" />
     <Compile Include="Controller\Data.cs" />
     <Compile Include="Controller\Database.cs" />
+    <Compile Include="Controller\SaoLuu.cs" />
     <Compile Include="Controller\SinhVien.cs" />
     <Compile Include="Controller\TraSach.cs" />
     <Compile Include="DialogueBox\BackupRestore\wizBackup.cs">
