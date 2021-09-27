@@ -34,9 +34,6 @@ namespace ThuVien.MainGUI
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.backupDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restoreDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,9 +156,6 @@ namespace ThuVien.MainGUI
             this.hệThốngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userListToolStripMenuItem,
             this.changePasswordToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.backupDataToolStripMenuItem,
-            this.restoreDataToolStripMenuItem,
             this.toolStripSeparator1,
             this.signOutToolStripMenuItem,
             this.exitToolStripMenuItem});
@@ -186,27 +180,6 @@ namespace ThuVien.MainGUI
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.changePasswordToolStripMenuItem.Text = "Đổi mật khẩu...";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
-            // 
-            // backupDataToolStripMenuItem
-            // 
-            this.backupDataToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_save_48px;
-            this.backupDataToolStripMenuItem.Name = "backupDataToolStripMenuItem";
-            this.backupDataToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.backupDataToolStripMenuItem.Text = "Sao lưu dữ liệu";
-            this.backupDataToolStripMenuItem.Click += new System.EventHandler(this.backupRestoreToolStripMenuItem_Click);
-            // 
-            // restoreDataToolStripMenuItem
-            // 
-            this.restoreDataToolStripMenuItem.Image = global::ThuVien.Properties.Resources.icons8_restore_page_48px;
-            this.restoreDataToolStripMenuItem.Name = "restoreDataToolStripMenuItem";
-            this.restoreDataToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.restoreDataToolStripMenuItem.Text = "Phục hồi dữ liệu";
-            this.restoreDataToolStripMenuItem.Click += new System.EventHandler(this.restoreDataToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1190,7 +1163,6 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbSachMuon;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtBorrowQuantity;
-        private System.Windows.Forms.ToolStripMenuItem backupDataToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1208,7 +1180,6 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.Button btnReturnBooks;
         private System.Windows.Forms.RadioButton radioReturnSelected;
         private System.Windows.Forms.RadioButton radioReturnAll;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Button btnResetReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
@@ -1220,6 +1191,5 @@ namespace ThuVien.MainGUI
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ToolStripMenuItem reportLostBookToolStripMenuItem;
         private System.Windows.Forms.LinkLabel linkLostBook;
-        private System.Windows.Forms.ToolStripMenuItem restoreDataToolStripMenuItem;
     }
 }

@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AeroWizard, Version=2.2.9.0, Culture=neutral, PublicKeyToken=915e74f5d64b8f37, processorArchitecture=MSIL">
-      <HintPath>packages\AeroWizard.2.2.9\lib\net45\AeroWizard.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -63,12 +60,6 @@
     <Compile Include="Controller\SaoLuu.cs" />
     <Compile Include="Controller\SinhVien.cs" />
     <Compile Include="Controller\TraSach.cs" />
-    <Compile Include="DialogueBox\BackupRestore\wizBackup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DialogueBox\BackupRestore\wizBackup.Designer.cs">
-      <DependentUpon>wizBackup.cs</DependentUpon>
-    </Compile>
     <Compile Include="DialogueBox\LostBook\frmLostBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,9 +98,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DialogueBox\BackupRestore\wizBackup.resx">
-      <DependentUpon>wizBackup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DialogueBox\LostBook\frmLostBook.resx">
       <DependentUpon>frmLostBook.cs</DependentUpon>
     </EmbeddedResource>

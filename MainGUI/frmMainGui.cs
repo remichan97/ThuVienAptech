@@ -511,8 +511,6 @@ namespace ThuVien.MainGUI
 
         private void backupRestoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-			DialogueBox.BackupRestore.wizBackup wiz = new DialogueBox.BackupRestore.wizBackup();
-			wiz.ShowDialog();
         }
 
         private void restoreDataToolStripMenuItem_Click(object sender, EventArgs e)
